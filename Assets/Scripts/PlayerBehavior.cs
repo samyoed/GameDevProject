@@ -9,10 +9,11 @@ public class PlayerBehavior : MonoBehaviour {
     public float moveX;
     public bool isFacingRight;
     private bool isOnGround = false;
+    Animator anim;
 
 	// Use this for initialization
 	void Start () {
-		
+        anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -27,6 +28,15 @@ public class PlayerBehavior : MonoBehaviour {
         {
             FlipPlayerDirection();
         }
+        if (moveX > 0.1 || moveX < -0.1)
+        {
+            anim.SetInteger("State", 1);
+        }
+        else
+        {
+            anim.SetInteger("State", 0);
+        }
+
 
         moveX = Input.GetAxis("Horizontal");
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * speed, 0);
