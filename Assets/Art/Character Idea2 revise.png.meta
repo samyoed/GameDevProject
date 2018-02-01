@@ -1,26 +1,26 @@
 fileFormatVersion: 2
-guid: 6611db822fedce049a7312c3541c1bda
-timeCreated: 1517457875
+guid: ddcb70a8f0c184addb6d47d749b1225a
+timeCreated: 1517493828
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Character Idea2_0
-    21300002: Character Idea2_1
-    21300004: Character Idea2_2
-    21300006: Character Idea2_3
-    21300008: Character Idea2_4
-    21300010: Character Idea2_5
-    21300012: Character Idea2_6
-    21300014: Character Idea2_7
-    21300016: Character Idea2_8
-    21300018: Character Idea2_9
-    21300020: Character Idea2_10
-    21300022: Character Idea2_11
-    21300024: Character Idea2_12
-    21300026: Character Idea2_13
-    21300028: Character Idea2_14
-    21300030: Character Idea2_15
-    21300032: Character Idea2_16
+    21300000: Character Idea2 revise_0
+    21300002: Character Idea2 revise_1
+    21300004: Character Idea2 revise_2
+    21300006: Character Idea2 revise_3
+    21300008: Character Idea2 revise_4
+    21300010: Character Idea2 revise_5
+    21300012: Character Idea2 revise_6
+    21300014: Character Idea2 revise_7
+    21300016: Character Idea2 revise_8
+    21300018: Character Idea2 revise_9
+    21300020: Character Idea2 revise_10
+    21300022: Character Idea2 revise_11
+    21300024: Character Idea2 revise_12
+    21300026: Character Idea2 revise_13
+    21300028: Character Idea2 revise_14
+    21300030: Character Idea2 revise_15
+    21300032: Character Idea2 revise_16
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -97,7 +97,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Character Idea2_0
+      name: Character Idea2 revise_0
       rect:
         serializedVersion: 2
         x: 0
@@ -111,7 +111,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_1
+      name: Character Idea2 revise_1
       rect:
         serializedVersion: 2
         x: 32
@@ -125,7 +125,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_2
+      name: Character Idea2 revise_2
       rect:
         serializedVersion: 2
         x: 64
@@ -139,7 +139,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_3
+      name: Character Idea2 revise_3
       rect:
         serializedVersion: 2
         x: 96
@@ -153,7 +153,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_4
+      name: Character Idea2 revise_4
       rect:
         serializedVersion: 2
         x: 128
@@ -167,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_5
+      name: Character Idea2 revise_5
       rect:
         serializedVersion: 2
         x: 160
@@ -181,7 +181,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_6
+      name: Character Idea2 revise_6
       rect:
         serializedVersion: 2
         x: 192
@@ -195,12 +195,12 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_7
+      name: Character Idea2 revise_7
       rect:
         serializedVersion: 2
-        x: 224
+        x: 227
         y: 0
-        width: 23
+        width: 20
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -209,7 +209,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_8
+      name: Character Idea2 revise_8
       rect:
         serializedVersion: 2
         x: 256
@@ -223,7 +223,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_9
+      name: Character Idea2 revise_9
       rect:
         serializedVersion: 2
         x: 288
@@ -237,7 +237,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_10
+      name: Character Idea2 revise_10
       rect:
         serializedVersion: 2
         x: 320
@@ -251,7 +251,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_11
+      name: Character Idea2 revise_11
       rect:
         serializedVersion: 2
         x: 354
@@ -265,7 +265,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_12
+      name: Character Idea2 revise_12
       rect:
         serializedVersion: 2
         x: 384
@@ -279,7 +279,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_13
+      name: Character Idea2 revise_13
       rect:
         serializedVersion: 2
         x: 416
@@ -293,7 +293,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_14
+      name: Character Idea2 revise_14
       rect:
         serializedVersion: 2
         x: 448
@@ -307,7 +307,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_15
+      name: Character Idea2 revise_15
       rect:
         serializedVersion: 2
         x: 482
@@ -321,7 +321,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Character Idea2_16
+      name: Character Idea2 revise_16
       rect:
         serializedVersion: 2
         x: 512
