@@ -5,8 +5,11 @@ using UnityEngine;
 public class PlayerBehavior : MonoBehaviour {
 
     public int speed = 10;
+    public int jump = 10;
     public float moveX;
     public bool isFacingRight;
+    private bool isOnGround = false;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,23 +20,40 @@ public class PlayerBehavior : MonoBehaviour {
 
         if(moveX > 0.0f && !isFacingRight)
         {
-            flipPlayerDirection();
+            FlipPlayerDirection();
         }
 
         else if(moveX < 0.0f && isFacingRight)
         {
-            flipPlayerDirection();
+            FlipPlayerDirection();
         }
 
         moveX = Input.GetAxis("Horizontal");
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * speed, 0);
+
+       if (Input.GetButtonDown("Jump")&& isOnGround )
+        {
+            Jump();
+            isOnGround = false;
+        }
 	}
 
-    void flipPlayerDirection()
+    void FlipPlayerDirection()
     {
         isFacingRight = !isFacingRight;
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+
+    void OnCollisionEnter()
+    {
+        isOnGround = true;
+    }
+
+    void Jump()
+    {
+        GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump, ForceMode2D.Impulse);
     }
 }
