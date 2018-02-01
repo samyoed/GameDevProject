@@ -9,6 +9,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     public float moveX;
     public bool isFacingRight;
 	public bool isBlue = true;
+	private int jumpCount = 0;
     private bool isOnGround = true;
 
     Animator anim;
@@ -47,11 +48,12 @@ public class BluePlayerBehavior : MonoBehaviour {
         moveX = Input.GetAxis("Horizontal");  //if input is on horizontal axis
 		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * speed, gameObject.GetComponent<Rigidbody2D>().velocity.y); //move
 		}
-       if (Input.GetButtonDown("Jump")&& isOnGround && isBlue)
+		if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2)
 		//if (Input.GetButtonDown("Jump"))
         {
             Jump();
             isOnGround = false;
+			jumpCount++;
         }
 	}
 
@@ -64,13 +66,16 @@ public class BluePlayerBehavior : MonoBehaviour {
     }
 
 
-    void OnCollisionEnter()
+	void OnCollisionEnter2D(Collision2D coll)
     {
+		//Debug.Log ("working");
         isOnGround = true;
+		jumpCount = 0;
     }
 
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump, ForceMode2D.Impulse);
+		//GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump);
     }
 }

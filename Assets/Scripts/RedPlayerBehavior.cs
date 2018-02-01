@@ -63,9 +63,10 @@ public class RedPlayerBehavior : MonoBehaviour {
     }
 
 
-    void OnCollisionEnter()
-    {
-        isOnGround = true;
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		//Debug.Log ("working");
+		isOnGround = true;
     }
 
     void Jump()
