@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 272974477}
   - component: {fileID: 272974476}
   - component: {fileID: 272974475}
+  - component: {fileID: 272974479}
   m_Layer: 0
   m_Name: Blue Camera
   m_TagString: MainCamera
@@ -195,6 +196,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &272974479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 272974474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea9aee20e25ac441830c31666d25273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1508994550}
 --- !u!1 &364659927
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,8 +606,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 309692c6a5a464d99bc24363cbab7e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
+  speed: 100
   jump: 150
+  dash: 400
+  finaldash: 1000
   moveX: 0
   isFacingRight: 1
   isBlue: 1
@@ -965,13 +980,14 @@ GameObject:
   - component: {fileID: 2066340853}
   - component: {fileID: 2066340855}
   - component: {fileID: 2066340854}
+  - component: {fileID: 2066340857}
   m_Layer: 0
   m_Name: Red Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!20 &2066340853
 Camera:
   m_ObjectHideFlags: 0
@@ -1036,6 +1052,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2066340857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2066340852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea9aee20e25ac441830c31666d25273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2086709265}
 --- !u!1 &2086709265
 GameObject:
   m_ObjectHideFlags: 0
