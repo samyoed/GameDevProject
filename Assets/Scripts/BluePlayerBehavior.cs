@@ -6,11 +6,14 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     public int speed = 10;
     public int jump = 10;
+    public int dash = 100;
+    public int finaldash = 150;
     public float moveX;
     public bool isFacingRight;
 	public bool isBlue = true;
 	private int jumpCount = 0;
     private bool isOnGround = true;
+    private bool isAttacking;
 
     Animator anim;
 
@@ -55,7 +58,40 @@ public class BluePlayerBehavior : MonoBehaviour {
             isOnGround = false;
 			jumpCount++;
         }
+
+        if (Input.GetButton("Fire1"))
+        {
+            isAttacking = true;
+            Melee();
+            Debug.Log("working");
+        }
+
+
 	}
+
+    void Dash()
+    {
+        if(isFacingRight)
+        GetComponent<Rigidbody2D>().AddForce(Vector2.right * dash, ForceMode2D.Impulse);
+        else
+        GetComponent<Rigidbody2D>().AddForce(Vector2.left * dash, ForceMode2D.Impulse);
+
+    }
+    void FinalDash()
+    {
+        if (isFacingRight)
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * finaldash, ForceMode2D.Impulse);
+        else
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * finaldash, ForceMode2D.Impulse);
+
+    }
+
+    void Melee()
+    {
+        
+        anim.SetInteger("State", 2);
+        Debug.Log("working");
+    }
 
     void FlipPlayerDirection()
     {
