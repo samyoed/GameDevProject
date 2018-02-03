@@ -12,8 +12,11 @@ public class BluePlayerBehavior : MonoBehaviour {
     public bool isFacingRight;
 	public bool isBlue = true;
 	private int jumpCount = 0;
-    private bool isOnGround = true;
+    private bool isOnGround = true; //to make it so player isnt running in the air
     private bool isAttacking;
+    float lockPos = 0;
+    public int health = 3;
+    public int knockback = 1000; 
 
     Animator anim;
 
@@ -25,7 +28,9 @@ public class BluePlayerBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (Input.GetKeyDown (KeyCode.C)) {
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //locks rotation
+
+        if (Input.GetKeyDown (KeyCode.C)) {
 			isBlue = !isBlue;
 		}
 
@@ -53,25 +58,25 @@ public class BluePlayerBehavior : MonoBehaviour {
         moveX = Input.GetAxis("Horizontal");  //if input is on horizontal axis
 		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * speed, gameObject.GetComponent<Rigidbody2D>().velocity.y); //move
 		}
-		if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2)
+		if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2) //if jump button is hit and player hasn't done more than 2 jumps
 		//if (Input.GetButtonDown("Jump"))
         {
-            Jump();
-            isOnGround = false;
-			jumpCount++;
+            Jump(); // call jump
+            isOnGround = false; //not on the ground anymore
+			jumpCount++; // add one to jump count
         }
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1")) // if fire1 button is called
         {
             isAttacking = true;
-            Melee();
-            Debug.Log("working");
+            Melee(); // do melee attack
+            
         }
 
 
 	}
 
-    void Dash()
+    void Dash() //dash for first two melee attacks
     {
         if(isFacingRight)
         GetComponent<Rigidbody2D>().AddForce(Vector2.right * dash, ForceMode2D.Impulse);
@@ -79,7 +84,7 @@ public class BluePlayerBehavior : MonoBehaviour {
         GetComponent<Rigidbody2D>().AddForce(Vector2.left * dash, ForceMode2D.Impulse);
 
     }
-    void FinalDash()
+    void FinalDash() //dash for 3rd melee attack
     {
         if (isFacingRight)
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * finaldash, ForceMode2D.Impulse);
@@ -88,14 +93,14 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     }
 
-    void Melee()
+    void Melee() // for melee attacks
     {
         
         anim.SetInteger("State", 2);
-        Debug.Log("working");
+        
     }
 
-    void FlipPlayerDirection()
+    void FlipPlayerDirection() // switches player direction
     {
         isFacingRight = !isFacingRight;
         Vector2 scale = transform.localScale;
@@ -106,10 +111,17 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll)
     {
-		//Debug.Log ("working");
-        isOnGround = true;
-		jumpCount = 0;
-        anim.SetInteger("State", 5);
+        //Debug.Log ("working");
+        if (coll.gameObject.tag == "Platform") // if 
+        {
+            isOnGround = true;
+            jumpCount = 0;
+           // anim.SetInteger("State", 5);
+        }
+
+        if (coll.gameObject.tag == "Enemy"){
+            Injured();
+        }
     }
 
     void Jump()
@@ -118,4 +130,21 @@ public class BluePlayerBehavior : MonoBehaviour {
         //GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump);
         anim.SetInteger("State", 5);
     }
+
+    void Injured()
+    {
+        if (!isOnGround)
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * knockback, ForceMode2D.Impulse);
+            Debug.Log("air injured");
+            health--;
+        }
+        else
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.left * knockback, ForceMode2D.Impulse);
+            Debug.Log("injured");
+            health--;
+        }
+    }
+
 }
