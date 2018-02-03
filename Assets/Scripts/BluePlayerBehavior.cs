@@ -40,10 +40,12 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
         if (moveX > 0.1 || moveX < -0.1)
         {
+            if(isOnGround)
             anim.SetInteger("State", 1); //if moving then go to move animation
         }
         else
         {
+            if(isOnGround)
             anim.SetInteger("State", 0);
         }
 
@@ -107,11 +109,13 @@ public class BluePlayerBehavior : MonoBehaviour {
 		//Debug.Log ("working");
         isOnGround = true;
 		jumpCount = 0;
+        anim.SetInteger("State", 5);
     }
 
     void Jump()
     {
         GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump, ForceMode2D.Impulse);
-		//GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump);
+        //GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump);
+        anim.SetInteger("State", 5);
     }
 }
