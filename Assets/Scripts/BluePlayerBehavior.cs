@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BluePlayerBehavior : MonoBehaviour {
 
@@ -16,7 +17,11 @@ public class BluePlayerBehavior : MonoBehaviour {
     private bool isAttacking;
     float lockPos = 0;
     public int health = 3;
-    public int knockback = 1000; 
+    public int knockback = 1000;
+    public Text healthText;
+    public GameObject heart1;
+    public GameObject heart2;
+    public GameObject heart3;
 
     Animator anim;
 
@@ -27,6 +32,38 @@ public class BluePlayerBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        healthText.text = "Health: " + health; //preliminary text
+
+
+        switch (health) {
+
+            case 1:
+                {
+                    heart1.SetActive(true);
+                    heart2.SetActive(false);
+                    heart3.SetActive(false);
+                    break;
+                }
+            case 2:
+                {
+                    heart1.SetActive(true);
+                    heart2.SetActive(true);
+                    heart3.SetActive(false);
+                    break;
+                }
+            case 3:
+                {
+                    heart1.SetActive(true);
+                    heart2.SetActive(true);
+                    heart3.SetActive(true);
+                    break;
+                }
+
+
+
+        }
+
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //locks rotation
 
