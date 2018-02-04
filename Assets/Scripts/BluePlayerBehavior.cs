@@ -25,6 +25,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     public bool isHurt = false;
     private float enemyDist;
     private bool enemyRight;
+    private bool isInvincible = false;
     Animator anim;
 
 	// Use this for initialization
@@ -35,7 +36,11 @@ public class BluePlayerBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        
+        if (isHurt)
+        {
+            StartCoroutine(BlinkSprite());
+            StartCoroutine(Invincible());
+        }
 
 
         Debug.Log("Health: " + health); //preliminary text
@@ -172,7 +177,7 @@ public class BluePlayerBehavior : MonoBehaviour {
            // anim.SetInteger("State", 5);
         }
 
-        if (coll.gameObject.tag == "Enemy"){
+        if (coll.gameObject.tag == "Enemy" && !isInvincible){
             enemyDist = this.transform.position.x - coll.transform.position.x;
             StartCoroutine(Injured());
         }
@@ -227,16 +232,36 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
 
-
-
-
-
-
-
-
         yield return new WaitForSeconds(.3f);
         isHurt = false;
     }
+
+
+    IEnumerator BlinkSprite()
+    {
+        for (int k = 0; k < 8; k++)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            yield return new WaitForSeconds(0.125f);
+            this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            yield return new WaitForSeconds(0.125f);
+        }
+
+
+    }
+
+    IEnumerator Invincible()
+    {
+        isInvincible = true;
+        yield return new WaitForSeconds(2f);
+        isInvincible = false;
+
+
+    }
+
+
+
+
 
 
 }

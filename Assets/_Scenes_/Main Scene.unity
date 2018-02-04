@@ -977,7 +977,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 150
-  jump: 200
+  jump: 150
   dash: 400
   finaldash: 600
   moveX: 0
