@@ -35,7 +35,10 @@ public class BluePlayerBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        healthText.text = "Health: " + health; //preliminary text
+        
+
+
+        Debug.Log("Health: " + health); //preliminary text
         //if(!isOnGround)
         //    gameObject.GetComponent<Rigidbody2D>().drag = 0;
 
@@ -63,8 +66,6 @@ public class BluePlayerBehavior : MonoBehaviour {
                     heart3.SetActive(true);
                     break;
                 }
-
-
 
         }
 
@@ -120,8 +121,11 @@ public class BluePlayerBehavior : MonoBehaviour {
             
         }
 
-
-	}
+        if (isHurt)
+        {
+            anim.SetInteger("State", 6);
+        }
+    }
 
     void Dash() //dash for first two melee attacks
     {
@@ -186,7 +190,8 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator Injured()
     {
         isHurt = true;
-        if(enemyDist > 0)
+        
+        if (enemyDist > 0)
         {
             enemyRight = true;
         }
@@ -229,8 +234,9 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-        yield return new WaitForSeconds(.2f);
+        yield return new WaitForSeconds(.3f);
         isHurt = false;
     }
+
 
 }
