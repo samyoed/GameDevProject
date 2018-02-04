@@ -19,18 +19,28 @@ public class BluePlayerBehavior : MonoBehaviour {
     public int health = 3;
     public int knockback = 1000;
     public Text healthText;
+
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
+
     public bool isHurt = false;
     private float enemyDist;
     private bool enemyRight;
     private bool isInvincible = false;
+
+    public int[] combo;
+    private int comboIndex = 0;
+    private float comboTimer;
+    public float fireRate = 1;
+
+
     Animator anim;
 
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
+        combo = new int[] { 2, 3, 4 };
 	}
 	
 	// Update is called once per frame
@@ -119,12 +129,54 @@ public class BluePlayerBehavior : MonoBehaviour {
 			jumpCount++; // add one to jump count
         }
 
-        if (Input.GetButton("Fire1")) // if fire1 button is called
+
+
+
+
+
+
+
+
+
+
+
+        /*  if (Input.GetButton("Fire1")) // if fire1 button is called
+          {
+              isAttacking = true;
+              Melee(); // do melee attack
+
+          } */
+
+        if( 0 < comboTimer && comboTimer< .3f && Input.GetButtonDown("Fire1"))
         {
-            isAttacking = true;
-            Melee(); // do melee attack
-            
+            StartCoroutine(CoolCombo());
         }
+
+        //else if (Input.GetButtonDown("Fire1") && comboIndex < combo.Length)
+        else if(Input.GetButtonDown("Fire1"))
+        {
+
+            //anim.SetInteger("State", combo[comboIndex]);
+            comboIndex++;
+
+            comboTimer = 0;
+            anim.SetInteger("State", 2);
+
+        }
+
+        if(comboIndex > 0)
+        {
+            comboTimer += Time.deltaTime;
+            if(comboTimer > fireRate)
+            {
+                anim.SetInteger("State", 0);
+                comboIndex = 0;
+            }
+        }
+
+
+
+
 
         if (isHurt)
         {
@@ -151,12 +203,12 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     }
 
-    void Melee() // for melee attacks
-    {
+    //void Melee() // for melee attacks
+    //{
         
-        anim.SetInteger("State", 2);
+    //    anim.SetInteger("State", 2);
         
-    }
+    //}
 
     void FlipPlayerDirection() // switches player direction
     {
@@ -259,7 +311,15 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     }
 
-
+    IEnumerator CoolCombo()
+    {
+        anim.SetInteger("State", 2);
+        yield return new WaitForSeconds(.39019f);
+        anim.SetInteger("State", 3);
+        yield return new WaitForSeconds(.4f);
+        anim.SetInteger("State", 4);
+        yield return new WaitForSeconds(.7f);
+    }
 
 
 
