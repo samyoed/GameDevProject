@@ -22,7 +22,9 @@ public class BluePlayerBehavior : MonoBehaviour {
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
-
+    public bool isHurt = false;
+    private float enemyDist;
+    private bool enemyRight;
     Animator anim;
 
 	// Use this for initialization
@@ -34,6 +36,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 	void Update () {
 
         healthText.text = "Health: " + health; //preliminary text
+        //if(!isOnGround)
+        //    gameObject.GetComponent<Rigidbody2D>().drag = 0;
 
 
         switch (health) {
@@ -91,11 +95,17 @@ public class BluePlayerBehavior : MonoBehaviour {
             anim.SetInteger("State", 0);
         }
 
-		if(isBlue){
+		if(isBlue && !isHurt){
         moveX = Input.GetAxis("Horizontal");  //if input is on horizontal axis
-		gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * speed, gameObject.GetComponent<Rigidbody2D>().velocity.y); //move
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * speed, gameObject.GetComponent<Rigidbody2D>().velocity.y); //move using velocity
+            //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(moveX * speed, 0), ForceMode2D.Impulse); //move using forces
 		}
-		if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2) //if jump button is hit and player hasn't done more than 2 jumps
+
+        if(!isOnGround)
+            anim.SetInteger("State", 5);
+
+
+        if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2) //if jump button is hit and player hasn't done more than 2 jumps
 		//if (Input.GetButtonDown("Jump"))
         {
             Jump(); // call jump
@@ -115,7 +125,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     void Dash() //dash for first two melee attacks
     {
-        if(isFacingRight)
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        if (isFacingRight)
         GetComponent<Rigidbody2D>().AddForce(Vector2.right * dash, ForceMode2D.Impulse);
         else
         GetComponent<Rigidbody2D>().AddForce(Vector2.left * dash, ForceMode2D.Impulse);
@@ -123,6 +134,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     }
     void FinalDash() //dash for 3rd melee attack
     {
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         if (isFacingRight)
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * finaldash, ForceMode2D.Impulse);
         else
@@ -157,31 +169,68 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
         if (coll.gameObject.tag == "Enemy"){
-            Injured();
+            enemyDist = this.transform.position.x - coll.transform.position.x;
+            StartCoroutine(Injured());
         }
     }
 
     void Jump()
     {
-        GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump, ForceMode2D.Impulse);
+        
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2 (gameObject.GetComponent<Rigidbody2D>().velocity.x, 0);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump, ForceMode2D.Impulse);
         //GetComponent<Rigidbody2D>().AddForce(Vector2.up*jump);
         anim.SetInteger("State", 5);
     }
 
-    void Injured()
+    IEnumerator Injured()
     {
-        if (!isOnGround)
+        isHurt = true;
+        if(enemyDist > 0)
+        {
+            enemyRight = true;
+        }
+        else
+        {
+            enemyRight = false;
+        }
+
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        if (!isOnGround && !enemyRight)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * knockback, ForceMode2D.Impulse);
             Debug.Log("air injured");
             health--;
         }
-        else
+        if(isOnGround && !enemyRight)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector2.left * knockback, ForceMode2D.Impulse);
             Debug.Log("injured");
             health--;
         }
+        if (!isOnGround && enemyRight)
+        {
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 1) * knockback, ForceMode2D.Impulse);
+            Debug.Log("air injured");
+            health--;
+        }
+        if (isOnGround && enemyRight)
+        {
+            GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
+            Debug.Log("injured");
+            health--;
+        }
+
+
+
+
+
+
+
+
+
+        yield return new WaitForSeconds(.2f);
+        isHurt = false;
     }
 
 }
