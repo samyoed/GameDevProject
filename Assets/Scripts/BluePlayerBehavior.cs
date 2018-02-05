@@ -117,8 +117,8 @@ public class BluePlayerBehavior : MonoBehaviour {
             //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(moveX * speed, 0), ForceMode2D.Impulse); //move using forces
 		}
 
-        if(!isOnGround)
-            anim.SetInteger("State", 5);
+        //if(!isOnGround)
+          //  anim.SetInteger("State", 5);
 
 
         if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2) //if jump button is hit and player hasn't done more than 2 jumps
@@ -175,7 +175,10 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
 
-
+        if(GetComponent<Rigidbody2D>().velocity.y < 0 && !isOnGround)
+        {
+            anim.SetInteger("State", 7);
+        }
 
 
         if (isHurt)
@@ -314,7 +317,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator CoolCombo()
     {
         anim.SetInteger("State", 2);
-        yield return new WaitForSeconds(.39019f);
+        yield return new WaitForSeconds(.3902f);
         anim.SetInteger("State", 3);
         yield return new WaitForSeconds(.4f);
         anim.SetInteger("State", 4);
