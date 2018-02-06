@@ -149,7 +149,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         if( 0 < comboTimer && comboTimer< .3f && Input.GetButtonDown("Fire1"))
         {
-            StartCoroutine(CoolCombo());
+            CoolCombo();
         }
 
         //else if (Input.GetButtonDown("Fire1") && comboIndex < combo.Length)
@@ -187,24 +187,7 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
     }
 
-    void Dash() //dash for first two melee attacks
-    {
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        if (isFacingRight)
-        GetComponent<Rigidbody2D>().AddForce(Vector2.right * dash, ForceMode2D.Impulse);
-        else
-        GetComponent<Rigidbody2D>().AddForce(Vector2.left * dash, ForceMode2D.Impulse);
-
-    }
-    void FinalDash() //dash for 3rd melee attack
-    {
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        if (isFacingRight)
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * finaldash, ForceMode2D.Impulse);
-        else
-            GetComponent<Rigidbody2D>().AddForce(Vector2.left * finaldash, ForceMode2D.Impulse);
-
-    }
+   
 
     //void Melee() // for melee attacks
     //{
@@ -314,14 +297,31 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     }
 
-    IEnumerator CoolCombo()
+
+
+    IEnumerator Dash() //dash for first two melee attacks
     {
-        anim.SetInteger("State", 2);
-        yield return new WaitForSeconds(.3902f);
+        if(isFacingRight)
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dash, 0);
+        else
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-dash, 0);
+        yield return new WaitForSeconds(0.3f);
+
+    }
+    IEnumerator FinalDash() //dash for 3rd melee attack
+    {
+        if (isFacingRight)
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(finaldash, 0);
+        else
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-finaldash, 0);
+        yield return new WaitForSeconds(0.3f);
+    }
+
+
+    void CoolCombo()
+    {
         anim.SetInteger("State", 3);
-        yield return new WaitForSeconds(.4f);
-        anim.SetInteger("State", 4);
-        yield return new WaitForSeconds(.7f);
+        
     }
 
 
