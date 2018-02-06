@@ -16,7 +16,10 @@ public class BluePlayerBehavior : MonoBehaviour {
     private bool isOnGround = true; //to make it so player isnt running in the air
     private bool isAttacking;
     float lockPos = 0;
+
     public int health = 3;
+	public float energy = 100;
+
     public int knockback = 1000;
     public Text healthText;
 
@@ -35,12 +38,16 @@ public class BluePlayerBehavior : MonoBehaviour {
     public float fireRate = 1;
 
 
+
+	public GameObject meleeHitbox;
+
     Animator anim;
 
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
-        combo = new int[] { 2, 3, 4 };
+        //combo = new int[] { 2, 3, 4 };
+		meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -53,7 +60,8 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
 
-        Debug.Log("Health: " + health); //preliminary text
+		Debug.Log("Energy: " + energy); //preliminary text
+
         //if(!isOnGround)
         //    gameObject.GetComponent<Rigidbody2D>().drag = 0;
 
@@ -87,7 +95,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //locks rotation
 
-        if (Input.GetKeyDown (KeyCode.C)) {
+		if (Input.GetButtonDown ("Fire3") && energy > 30f) {
+			energy = energy - 30;
 			isBlue = !isBlue;
 		}
 
@@ -120,6 +129,10 @@ public class BluePlayerBehavior : MonoBehaviour {
         //if(!isOnGround)
           //  anim.SetInteger("State", 5);
 
+		if (Input.GetButton ("Jump") && GetComponent<Rigidbody2D> ().velocity.y > 0) //
+			GetComponent<Rigidbody2D> ().gravityScale = 25;
+		else
+			GetComponent<Rigidbody2D> ().gravityScale = 55;
 
         if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2) //if jump button is hit and player hasn't done more than 2 jumps
 		//if (Input.GetButtonDown("Jump"))
@@ -131,15 +144,6 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-
-
-
-
-
-
-
-
-
         /*  if (Input.GetButton("Fire1")) // if fire1 button is called
           {
               isAttacking = true;
@@ -147,13 +151,13 @@ public class BluePlayerBehavior : MonoBehaviour {
 
           } */
 
-        if( 0 < comboTimer && comboTimer< .3f && Input.GetButtonDown("Fire1"))
+		if( 0 < comboTimer && comboTimer< .3f && Input.GetButtonDown("Fire1") && energy > 20)
         {
             CoolCombo();
         }
 
         //else if (Input.GetButtonDown("Fire1") && comboIndex < combo.Length)
-        else if(Input.GetButtonDown("Fire1"))
+		else if(Input.GetButtonDown("Fire1") && energy > 5)
         {
 
             //anim.SetInteger("State", combo[comboIndex]);
@@ -175,7 +179,7 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
 
-        if(GetComponent<Rigidbody2D>().velocity.y < 0 && !isOnGround)
+		if(GetComponent<Rigidbody2D>().velocity.y < 0 && !isOnGround && !Input.GetButton("Fire1"))
         {
             anim.SetInteger("State", 7);
         }
@@ -185,6 +189,12 @@ public class BluePlayerBehavior : MonoBehaviour {
         {
             anim.SetInteger("State", 6);
         }
+
+		if (energy < 100)
+		{
+			energy = energy + .25f;
+		}
+
     }
 
    
@@ -294,13 +304,11 @@ public class BluePlayerBehavior : MonoBehaviour {
         yield return new WaitForSeconds(2f);
         isInvincible = false;
 
-
     }
-
-
 
     IEnumerator Dash() //dash for first two melee attacks
     {
+		energy = energy - 5.0f;
         if(isFacingRight)
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dash, 0);
         else
@@ -308,8 +316,10 @@ public class BluePlayerBehavior : MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
 
     }
+
     IEnumerator FinalDash() //dash for 3rd melee attack
     {
+		energy = energy - 10.0f;
         if (isFacingRight)
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(finaldash, 0);
         else
@@ -318,11 +328,23 @@ public class BluePlayerBehavior : MonoBehaviour {
     }
 
 
+	IEnumerator MeleeHitbox() //enables then disables melee hitbox when melee attack, attached to animations
+	{
+		meleeHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+		yield return new WaitForSeconds (0.3f);
+		meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
+
+	}
+
+
     void CoolCombo()
     {
         anim.SetInteger("State", 3);
         
     }
+
+
+		
 
 
 

@@ -15,7 +15,7 @@ public class CamSwitch : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown(KeyCode.C)) {
+		if (Input.GetButtonDown("Fire3")) {
 			camera1.enabled = !camera1.enabled;
 			camera2.enabled = !camera2.enabled;
 	}
