@@ -38,7 +38,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     public float fireRate = 1;
 
 
-
+	public GameObject energyFill;
 	public GameObject meleeHitbox;
 
     Animator anim;
@@ -58,10 +58,14 @@ public class BluePlayerBehavior : MonoBehaviour {
             StartCoroutine(BlinkSprite());
             StartCoroutine(Invincible());
         }
-
+		float energyfill = -(100f - energy) / 100f;
 
 		Debug.Log("Energy: " + energy); //preliminary text
-
+		energyFill.gameObject.GetComponent<Transform> ().position = new Vector3 (
+			energyFill.gameObject.GetComponent<Transform> ().position.x,
+			energyfill,
+			energyFill.gameObject.GetComponent<Transform> ().position.z);
+		Debug.Log (energyFill.gameObject.GetComponent<Transform>().position.y);
         //if(!isOnGround)
         //    gameObject.GetComponent<Rigidbody2D>().drag = 0;
 
