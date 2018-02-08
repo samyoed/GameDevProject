@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 12c9a19bfcc0ab14f9298f9e7d6d9e1f
-timeCreated: 1517856251
+timeCreated: 1518040042
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -66,6 +66,11 @@ TextureImporter:
     21300118: Character Idea2 Almost Final_59
     21300120: Character Idea2 Almost Final_60
     21300122: Character Idea2 Almost Final_61
+    21300124: Character Idea2 Almost Final_62
+    21300126: Character Idea2 Almost Final_63
+    21300128: Character Idea2 Almost Final_64
+    21300130: Character Idea2 Almost Final_65
+    21300132: Character Idea2 Almost Final_66
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -1000,6 +1005,76 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4148
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_62
+      rect:
+        serializedVersion: 2
+        x: 4216
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_63
+      rect:
+        serializedVersion: 2
+        x: 4284
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_64
+      rect:
+        serializedVersion: 2
+        x: 4352
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_65
+      rect:
+        serializedVersion: 2
+        x: 4420
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_66
+      rect:
+        serializedVersion: 2
+        x: 4488
         y: 0
         width: 68
         height: 40

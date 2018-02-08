@@ -26,11 +26,14 @@ public class BluePlayerBehavior : MonoBehaviour {
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
+    public GameObject face1;
+    public GameObject face2;
 
     public bool isHurt = false;
     private float enemyDist;
     private bool enemyRight;
     private bool isInvincible = false;
+    private bool isFalling = false;
 
     public int[] combo;
     private int comboIndex = 0;
@@ -47,7 +50,9 @@ public class BluePlayerBehavior : MonoBehaviour {
         anim = GetComponent<Animator>();
         //combo = new int[] { 2, 3, 4 };
 		meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
-	}
+        face1.SetActive(true);
+        face2.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -138,7 +143,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			jumpCount++; // add one to jump count
         }
 
-
+      
 
         /*  if (Input.GetButton("Fire1")) // if fire1 button is called
           {
@@ -178,6 +183,14 @@ public class BluePlayerBehavior : MonoBehaviour {
 		if(GetComponent<Rigidbody2D>().velocity.y < 0 && !isOnGround && !Input.GetButton("Fire1"))
         {
             anim.SetInteger("State", 7);
+            isFalling = true;
+        }
+        
+        
+        if (isFalling && isOnGround)
+        {
+            anim.SetInteger("State", 8);
+            isFalling = false;
         }
 
 
@@ -239,6 +252,8 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator Injured()
     {
         isHurt = true;
+        face1.SetActive(false);
+        face2.SetActive(true);
         
         if (enemyDist > 0)
         {
@@ -277,6 +292,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
         yield return new WaitForSeconds(.3f);
+        face1.SetActive(true);
+        face2.SetActive(false);
         isHurt = false;
     }
 
@@ -332,7 +349,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 	}
 
-
+  
     void CoolCombo()
     {
         anim.SetInteger("State", 3);
