@@ -21,7 +21,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 	public float energy = 100;
 
     public int knockback = 1000;
-    public Text healthText;
+    public Text energyText;
 
     public GameObject heart1;
     public GameObject heart2;
@@ -56,6 +56,10 @@ public class BluePlayerBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        int energyint = Mathf.RoundToInt(energy);
+
+        energyText.text = "Energy:" + energyint;
 
         if (isHurt)
         {
@@ -201,7 +205,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 		if (energy < 100)
 		{
-			energy = energy + .1f;
+			energy = energy + .025f;
 		}
 
     }
@@ -252,8 +256,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator Injured()
     {
         isHurt = true;
-        face1.SetActive(false);
-        face2.SetActive(true);
+        
         
         if (enemyDist > 0)
         {
@@ -292,8 +295,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
         yield return new WaitForSeconds(.3f);
-        face1.SetActive(true);
-        face2.SetActive(false);
+        
         isHurt = false;
     }
 
@@ -303,8 +305,12 @@ public class BluePlayerBehavior : MonoBehaviour {
         for (int k = 0; k < 8; k++)
         {
             this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            face1.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            face2.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             yield return new WaitForSeconds(0.125f);
             this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            face1.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            face2.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             yield return new WaitForSeconds(0.125f);
         }
 
@@ -314,8 +320,12 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator Invincible()
     {
         isInvincible = true;
+        face1.SetActive(false);
+        face2.SetActive(true);
         yield return new WaitForSeconds(2f);
         isInvincible = false;
+        face1.SetActive(true);
+        face2.SetActive(false);
 
     }
 
