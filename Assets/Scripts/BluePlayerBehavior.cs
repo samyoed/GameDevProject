@@ -41,7 +41,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     public float fireRate = 1;
 
 
-	public GameObject meleeHitbox;
+	//public GameObject meleeHitbox;
 
     Animator anim;
 
@@ -49,7 +49,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 	void Start () {
         anim = GetComponent<Animator>();
         //combo = new int[] { 2, 3, 4 };
-		meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
+		//meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
         face1.SetActive(true);
         face2.SetActive(false);
     }
@@ -351,13 +351,13 @@ public class BluePlayerBehavior : MonoBehaviour {
     }
 
 
-	IEnumerator MeleeHitbox() //enables then disables melee hitbox when melee attack, attached to animations
-	{
-		meleeHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-		yield return new WaitForSeconds (0.3f);
-		meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
-
-	}
+//	IEnumerator MeleeHitbox() //enables then disables melee hitbox when melee attack, attached to animations
+//	{
+//		meleeHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+//		yield return new WaitForSeconds (0.3f);
+//		meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
+//
+//	}
 
   
     void CoolCombo()
