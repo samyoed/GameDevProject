@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 12c9a19bfcc0ab14f9298f9e7d6d9e1f
-timeCreated: 1518040042
+timeCreated: 1518286045
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -71,6 +71,37 @@ TextureImporter:
     21300128: Character Idea2 Almost Final_64
     21300130: Character Idea2 Almost Final_65
     21300132: Character Idea2 Almost Final_66
+    21300134: Character Idea2 Almost Final_67
+    21300136: Character Idea2 Almost Final_68
+    21300138: Character Idea2 Almost Final_69
+    21300140: Character Idea2 Almost Final_70
+    21300142: Character Idea2 Almost Final_71
+    21300144: Character Idea2 Almost Final_72
+    21300146: Character Idea2 Almost Final_73
+    21300148: Character Idea2 Almost Final_74
+    21300150: Character Idea2 Almost Final_75
+    21300152: Character Idea2 Almost Final_76
+    21300154: Character Idea2 Almost Final_77
+    21300156: Character Idea2 Almost Final_78
+    21300158: Character Idea2 Almost Final_79
+    21300160: Character Idea2 Almost Final_80
+    21300162: Character Idea2 Almost Final_81
+    21300164: Character Idea2 Almost Final_82
+    21300166: Character Idea2 Almost Final_83
+    21300168: Character Idea2 Almost Final_84
+    21300170: Character Idea2 Almost Final_85
+    21300172: Character Idea2 Almost Final_86
+    21300174: Character Idea2 Almost Final_87
+    21300176: Character Idea2 Almost Final_88
+    21300178: Character Idea2 Almost Final_89
+    21300180: Character Idea2 Almost Final_90
+    21300182: Character Idea2 Almost Final_91
+    21300184: Character Idea2 Almost Final_92
+    21300186: Character Idea2 Almost Final_93
+    21300188: Character Idea2 Almost Final_94
+    21300190: Character Idea2 Almost Final_95
+    21300192: Character Idea2 Almost Final_96
+    21300194: Character Idea2 Almost Final_97
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -1075,6 +1106,440 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4488
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_67
+      rect:
+        serializedVersion: 2
+        x: 4556
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_68
+      rect:
+        serializedVersion: 2
+        x: 4624
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_69
+      rect:
+        serializedVersion: 2
+        x: 4692
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_70
+      rect:
+        serializedVersion: 2
+        x: 4760
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_71
+      rect:
+        serializedVersion: 2
+        x: 4828
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_72
+      rect:
+        serializedVersion: 2
+        x: 4896
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_73
+      rect:
+        serializedVersion: 2
+        x: 4964
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_74
+      rect:
+        serializedVersion: 2
+        x: 5032
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_75
+      rect:
+        serializedVersion: 2
+        x: 5100
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_76
+      rect:
+        serializedVersion: 2
+        x: 5168
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_77
+      rect:
+        serializedVersion: 2
+        x: 5236
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_78
+      rect:
+        serializedVersion: 2
+        x: 5304
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_79
+      rect:
+        serializedVersion: 2
+        x: 5372
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_80
+      rect:
+        serializedVersion: 2
+        x: 5440
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_81
+      rect:
+        serializedVersion: 2
+        x: 5508
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_82
+      rect:
+        serializedVersion: 2
+        x: 5576
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_83
+      rect:
+        serializedVersion: 2
+        x: 5644
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_84
+      rect:
+        serializedVersion: 2
+        x: 5712
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_85
+      rect:
+        serializedVersion: 2
+        x: 5780
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_86
+      rect:
+        serializedVersion: 2
+        x: 5848
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_87
+      rect:
+        serializedVersion: 2
+        x: 5916
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_88
+      rect:
+        serializedVersion: 2
+        x: 5984
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_89
+      rect:
+        serializedVersion: 2
+        x: 6052
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_90
+      rect:
+        serializedVersion: 2
+        x: 6120
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_91
+      rect:
+        serializedVersion: 2
+        x: 6188
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_92
+      rect:
+        serializedVersion: 2
+        x: 6256
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_93
+      rect:
+        serializedVersion: 2
+        x: 6324
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_94
+      rect:
+        serializedVersion: 2
+        x: 6392
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_95
+      rect:
+        serializedVersion: 2
+        x: 6460
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_96
+      rect:
+        serializedVersion: 2
+        x: 6528
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_97
+      rect:
+        serializedVersion: 2
+        x: 6596
         y: 0
         width: 68
         height: 40

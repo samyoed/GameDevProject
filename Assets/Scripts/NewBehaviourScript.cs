@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeHitbox1 : MonoBehaviour {
-
-	public GameObject meleeHitboxPos;
-    
-
+public class NewBehaviourScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +11,6 @@ public class MeleeHitbox1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.GetComponent<Transform>().position = meleeHitboxPos.gameObject.GetComponent<Transform>().position;
+		
 	}
 }

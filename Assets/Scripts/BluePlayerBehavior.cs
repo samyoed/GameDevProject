@@ -34,14 +34,20 @@ public class BluePlayerBehavior : MonoBehaviour {
     private bool enemyRight;
     private bool isInvincible = false;
     private bool isFalling = false;
+    
 
     public int[] combo;
     private int comboIndex = 0;
     private float comboTimer;
     public float fireRate = 1;
 
+    public bool hasRanged = true;
 
-	//public GameObject meleeHitbox;
+
+
+
+
+	public GameObject meleeHitbox;
 
     Animator anim;
 
@@ -52,6 +58,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 		//meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
         face1.SetActive(true);
         face2.SetActive(false);
+        
     }
 	
 	// Update is called once per frame
@@ -125,7 +132,7 @@ public class BluePlayerBehavior : MonoBehaviour {
             anim.SetInteger("State", 0);
         }
 
-		if(isBlue && !isHurt){
+		if(isBlue && !isHurt && !isAttacking){
         moveX = Input.GetAxis("Horizontal");  //if input is on horizontal axis
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * speed, gameObject.GetComponent<Rigidbody2D>().velocity.y); //move using velocity
             //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(moveX * speed, 0), ForceMode2D.Impulse); //move using forces
@@ -208,9 +215,17 @@ public class BluePlayerBehavior : MonoBehaviour {
 			energy = energy + .025f;
 		}
 
+        if(Input.GetButtonDown("Fire2") && hasRanged && energy > 5) // if fire2 is pressed and ranged is enabled then ranged attack
+        {
+            
+            StartCoroutine(RangedAttack());
+        }
+        
+
     }
 
    
+   // ____________________________________________________________________________________________________________________________________________________________________________________________________________
 
     //void Melee() // for melee attacks
     //{
@@ -241,6 +256,15 @@ public class BluePlayerBehavior : MonoBehaviour {
         if (coll.gameObject.tag == "Enemy" && !isInvincible){
             enemyDist = this.transform.position.x - coll.transform.position.x;
             StartCoroutine(Injured());
+        }
+        else if(coll.gameObject.tag =="Enemy" && isInvincible)
+        {
+            StartCoroutine(IgnoreEnemy(coll));
+        }
+        if (coll.gameObject.tag == "Enemy" && isAttacking)
+        {
+            StartCoroutine(AttackInvicibility(coll));
+            
         }
     }
 
@@ -299,19 +323,18 @@ public class BluePlayerBehavior : MonoBehaviour {
         isHurt = false;
     }
 
-
     IEnumerator BlinkSprite()
     {
-        for (int k = 0; k < 8; k++)
+        for (int k = 0; k < 10; k++)
         {
             this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             face1.gameObject.GetComponent<SpriteRenderer>().enabled = false;
             face2.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            yield return new WaitForSeconds(0.125f);
+            yield return new WaitForSeconds(0.1f);
             this.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             face1.gameObject.GetComponent<SpriteRenderer>().enabled = true;
             face2.gameObject.GetComponent<SpriteRenderer>().enabled = true;
-            yield return new WaitForSeconds(0.125f);
+            yield return new WaitForSeconds(0.1f);
         }
 
 
@@ -322,6 +345,7 @@ public class BluePlayerBehavior : MonoBehaviour {
         isInvincible = true;
         face1.SetActive(false);
         face2.SetActive(true);
+        
         yield return new WaitForSeconds(2f);
         isInvincible = false;
         face1.SetActive(true);
@@ -329,14 +353,35 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     }
 
+    IEnumerator IgnoreEnemy(Collision2D coll)
+    {
+        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), coll.gameObject.GetComponent<Collider2D>(), true);
+        yield return new WaitForSeconds(1.5f);
+        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), coll.gameObject.GetComponent<Collider2D>(), false);
+    }
+
+    IEnumerator AttackInvicibility (Collision2D coll)
+    {
+        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), coll.gameObject.GetComponent<Collider2D>(), true);
+        yield return new WaitForSeconds(1.5f);
+        Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), coll.gameObject.GetComponent<Collider2D>(), false);
+    }
+
+
     IEnumerator Dash() //dash for first two melee attacks
     {
+        isAttacking = true;
 		energy = energy - 5.0f;
-        if(isFacingRight)
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dash, 0);
-        else
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-dash, 0);
-        yield return new WaitForSeconds(0.3f);
+        if (isFacingRight)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dash, 0);
+        }
+        if (!isFacingRight)
+        {
+            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-dash, 0);
+        }
+        yield return new WaitForSeconds(0.2f);
+        isAttacking = false;
 
     }
 
@@ -351,15 +396,25 @@ public class BluePlayerBehavior : MonoBehaviour {
     }
 
 
-//	IEnumerator MeleeHitbox() //enables then disables melee hitbox when melee attack, attached to animations
-//	{
-//		meleeHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-//		yield return new WaitForSeconds (0.3f);
-//		meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
-//
-//	}
+    //IEnumerator MeleeHitbox() //enables then disables melee hitbox when melee attack, attached to animations
+    //{
+    //    meleeHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    //    yield return new WaitForSeconds(0.3f);
+    //    meleeHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
-  
+    //}
+
+        IEnumerator RangedAttack() //ranged attack then switches back to idle
+    {
+        if (isOnGround)
+            anim.SetInteger("State", 9);
+        else
+            anim.SetInteger("State", 10);
+        yield return new WaitForSeconds(0.3f);
+        anim.SetInteger("State", 0);
+    
+    }
+
     void CoolCombo()
     {
         anim.SetInteger("State", 3);

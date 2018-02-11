@@ -14,13 +14,13 @@ public class HitboxManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		melee1Hitbox.gameObject.SetActive (false);
-		melee2Hitbox.gameObject.SetActive (false);
-		rangedHitbox.gameObject.SetActive (false);
+        melee1Hitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        melee2Hitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        rangedHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
 
 
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -38,7 +38,7 @@ IEnumerator DashHit()
 
 {
 		melee1Hitbox.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-	yield return new WaitForSeconds(0.2f);
+	yield return new WaitForSeconds(0.3f);
 		melee1Hitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 } 
 
