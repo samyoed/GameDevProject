@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 12c9a19bfcc0ab14f9298f9e7d6d9e1f
-timeCreated: 1518286045
+timeCreated: 1518488656
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -102,6 +102,15 @@ TextureImporter:
     21300190: Character Idea2 Almost Final_95
     21300192: Character Idea2 Almost Final_96
     21300194: Character Idea2 Almost Final_97
+    21300196: Character Idea2 Almost Final_98
+    21300198: Character Idea2 Almost Final_99
+    21300200: Character Idea2 Almost Final_100
+    21300202: Character Idea2 Almost Final_101
+    21300204: Character Idea2 Almost Final_102
+    21300206: Character Idea2 Almost Final_103
+    21300208: Character Idea2 Almost Final_104
+    21300210: Character Idea2 Almost Final_105
+    21300212: Character Idea2 Almost Final_106
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -1540,6 +1549,132 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 6596
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_98
+      rect:
+        serializedVersion: 2
+        x: 6664
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_99
+      rect:
+        serializedVersion: 2
+        x: 6732
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_100
+      rect:
+        serializedVersion: 2
+        x: 6800
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_101
+      rect:
+        serializedVersion: 2
+        x: 6868
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_102
+      rect:
+        serializedVersion: 2
+        x: 6936
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_103
+      rect:
+        serializedVersion: 2
+        x: 7004
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_104
+      rect:
+        serializedVersion: 2
+        x: 7072
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_105
+      rect:
+        serializedVersion: 2
+        x: 7140
+        y: 0
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_106
+      rect:
+        serializedVersion: 2
+        x: 7208
         y: 0
         width: 68
         height: 40

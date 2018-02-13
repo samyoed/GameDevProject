@@ -20,6 +20,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     public int health = 3;
 	public float energy = 100;
 
+    public int dodgeSpeed = 10000;
     public int knockback = 1000;
     public Text energyText;
 
@@ -34,6 +35,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     private bool enemyRight;
     private bool isInvincible = false;
     private bool isFalling = false;
+    private bool hasDodged = false;
     
 
     public int[] combo;
@@ -42,6 +44,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     public float fireRate = 1;
 
     public bool hasRanged = true;
+    public bool hasDodge = true;
 
 
 
@@ -220,6 +223,12 @@ public class BluePlayerBehavior : MonoBehaviour {
             
             StartCoroutine(RangedAttack());
         }
+
+        if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged)
+        {
+            StartCoroutine(Dodge());
+            hasDodged = true;
+        }
         
 
     }
@@ -250,6 +259,7 @@ public class BluePlayerBehavior : MonoBehaviour {
         {
             isOnGround = true;
             jumpCount = 0;
+            hasDodged = false;
            // anim.SetInteger("State", 5);
         }
 
@@ -413,6 +423,28 @@ public class BluePlayerBehavior : MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
         anim.SetInteger("State", 0);
     
+    }
+
+
+    IEnumerator Dodge()
+    {
+        isInvincible = true;
+        
+            anim.SetInteger("State", 11);
+        
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(0.2f);
+        isInvincible = false;
+        if (isFacingRight)
+        GetComponent<Rigidbody2D>().velocity = new Vector2(dodgeSpeed, 0);
+        else
+        GetComponent<Rigidbody2D>().velocity = new Vector2(-dodgeSpeed, 0);
+
+        yield return new WaitForSeconds(0.3f);
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1);
+        GetComponent<BoxCollider2D>().enabled = true;
+
+        
     }
 
     void CoolCombo()
