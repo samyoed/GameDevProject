@@ -29,6 +29,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     public GameObject heart3;
     public GameObject face1;
     public GameObject face2;
+	public GameObject arrow;
 
     public bool isHurt = false;
     private float enemyDist;
@@ -45,7 +46,16 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     public bool hasRanged = true;
     public bool hasDodge = true;
+	public bool hasTripleMelee = true;
+	public bool hasSpeedyRegen = true;
 
+	private float dashStartTime;
+	private float dashEndTime;
+	private bool isDashing = false;
+
+	private float timeForMelee = 0;
+	private float meleeEndTime = .2f;
+	private bool canAttack = false;
 
 
 
@@ -57,7 +67,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
-        //combo = new int[] { 2, 3, 4 };
+        combo = new int[] { 2, 3, 4 };
 		//meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
         face1.SetActive(true);
         face2.SetActive(false);
@@ -166,32 +176,56 @@ public class BluePlayerBehavior : MonoBehaviour {
 
           } */
 
-		if( 0 < comboTimer && comboTimer< .3f && Input.GetButtonDown("Fire1") && energy > 20)
-        {
-            CoolCombo();
-        }
+//		if( 0 < comboTimer && comboTimer< .3f && Input.GetButtonDown("Fire1") && energy > 20)
+//        {
+//            CoolCombo();
+//        }
 
         //else if (Input.GetButtonDown("Fire1") && comboIndex < combo.Length)
-		else if(Input.GetButtonDown("Fire1") && energy > 5)
-        {
 
-            //anim.SetInteger("State", combo[comboIndex]);
-            comboIndex++;
+		timeForMelee += Time.deltaTime;
+		if (meleeEndTime > timeForMelee) 
+		{ 
+			canAttack = true;
+		} 
+		else
+		{
+			canAttack = false;
+		}
 
-            comboTimer = 0;
-            anim.SetInteger("State", 2);
 
-        }
 
-        if(comboIndex > 0)
-        {
-            comboTimer += Time.deltaTime;
-            if(comboTimer > fireRate)
-            {
-                anim.SetInteger("State", 0);
-                comboIndex = 0;
-            }
-        }
+		if (Input.GetButtonDown ("Fire1") && energy > 5 && hasTripleMelee) {
+
+			if (canAttack == true){
+				timeForMelee = 0;
+			anim.SetInteger ("State", combo[comboIndex]);
+			comboIndex++;
+			
+			
+
+			if (comboIndex > 2)
+				comboIndex = 0;
+//            comboTimer = 0;
+//            anim.SetInteger("State", 2);
+			}
+
+		} else 
+			if (Input.GetButtonDown ("Fire1") && energy > 5 && !hasTripleMelee) {
+			
+				anim.SetInteger ("State", 2);
+
+
+		}
+//        if(comboIndex > 0)
+//        {
+//            comboTimer += Time.deltaTime;
+//            if(comboTimer > fireRate)
+//            {
+//                anim.SetInteger("State", 0);
+//                comboIndex = 0;
+//            }
+//        }
 
 
 		if(GetComponent<Rigidbody2D>().velocity.y < 0 && !isOnGround && !Input.GetButton("Fire1"))
@@ -213,25 +247,82 @@ public class BluePlayerBehavior : MonoBehaviour {
             anim.SetInteger("State", 6);
         }
 
-		if (energy < 100)
+		if (energy < 100 && !hasSpeedyRegen)
 		{
-			energy = energy + .025f;
+			energy = energy + .03f;
+		}
+
+		if (energy < 100 && hasSpeedyRegen) 
+		{
+			energy = energy + .06f;
 		}
 
         if(Input.GetButtonDown("Fire2") && hasRanged && energy > 5) // if fire2 is pressed and ranged is enabled then ranged attack
         {
             
             StartCoroutine(RangedAttack());
+
+			GameObject projectile = Instantiate (arrow, new Vector2 (GetComponent<Transform>().position.x, GetComponent<Transform>().position.y - 10f));
+
+				projectile.GetComponent<Rigidbody2D>().velocity = new Vector2 (200f, 0);
+
+
+
+
+
         }
 
-        if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged)
-        {
-            StartCoroutine(Dodge());
-            hasDodged = true;
-        }
-        
+//        if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged)
+//        {
+//            StartCoroutine(Dodge());
+//            hasDodged = true;
+//        }
+
+		if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged) {
+			dashStartTime = Time.timeSinceLevelLoad + 0.2f;
+			dashEndTime = Time.timeSinceLevelLoad + 0.3f;
+			hasDodged = true;
+			isDashing = true;
+			anim.SetInteger("State", 11);
+		}
+
 
     }
+
+
+
+
+
+
+	void FixedUpdate(){
+
+
+		if (!isDashing) {
+
+
+			return;
+
+		}
+		if (Time.timeSinceLevelLoad < dashStartTime) { // wait time  //smaller than dash time 
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0); 
+			isInvincible = true;
+			GetComponent<BoxCollider2D>().enabled =  false;
+		} else if (Time.timeSinceLevelLoad < dashEndTime) {  //but if greater than dashEndTime
+
+			if (isFacingRight)  //direction check
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (dodgeSpeed, 0);
+			else
+				GetComponent<Rigidbody2D> ().velocity = new Vector2 (-dodgeSpeed, 0);
+
+		} else {
+			GetComponent<BoxCollider2D>().enabled = true;
+			isInvincible = false;
+			isDashing = false;
+
+		}
+
+
+	}
 
    
    // ____________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -397,12 +488,14 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     IEnumerator FinalDash() //dash for 3rd melee attack
     {
-		energy = energy - 10.0f;
+		isAttacking = true;
+		energy = energy - 5.0f;
         if (isFacingRight)
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(finaldash, 0);
         else
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-finaldash, 0);
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
+		isAttacking = false;
     }
 
 
@@ -433,8 +526,10 @@ public class BluePlayerBehavior : MonoBehaviour {
             anim.SetInteger("State", 11);
         
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        yield return new WaitForSeconds(0.2f);
-        isInvincible = false;
+
+        yield return new WaitForSeconds(0.2f); // maybe change to waitforframes, is waitforframes more accurate??
+		 //waitforframes doesnt exist? // ask why the distance changes every time this is called
+		isInvincible = false;
         if (isFacingRight)
         GetComponent<Rigidbody2D>().velocity = new Vector2(dodgeSpeed, 0);
         else

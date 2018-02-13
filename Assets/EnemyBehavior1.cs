@@ -8,7 +8,9 @@ public class EnemyBehavior1 : MonoBehaviour {
     public int knockback = 1000;
     private float hitboxDist;
     private bool hitboxRight;
-    private bool isOnGround;
+    private bool isOnGround = false;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -23,6 +25,14 @@ public class EnemyBehavior1 : MonoBehaviour {
             this.gameObject.SetActive(false);
         }
 	}
+
+
+	void FixedUpdate(){
+		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
+
+
+	}
+
 
 
 
