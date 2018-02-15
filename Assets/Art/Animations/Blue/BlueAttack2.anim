@@ -91,15 +91,8 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.15
-    functionName: Dash
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.15
-    functionName: MeleeHitbox
+  - time: 0.05
+    functionName: DashHit
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

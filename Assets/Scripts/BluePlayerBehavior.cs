@@ -262,9 +262,18 @@ public class BluePlayerBehavior : MonoBehaviour {
             
             StartCoroutine(RangedAttack());
 
-			GameObject projectile = Instantiate (arrow, new Vector2 (GetComponent<Transform>().position.x, GetComponent<Transform>().position.y - 10f));
+			GameObject projectile = Instantiate (arrow, new Vector2 (this.transform.position.x, this.transform.position.y - 1f), Quaternion.identity);
 
-				projectile.GetComponent<Rigidbody2D>().velocity = new Vector2 (200f, 0);
+			if (isFacingRight)
+				projectile.GetComponent<Rigidbody2D> ().velocity = new Vector2 (1000f, 0);
+			else if (!isFacingRight) {
+				
+				Vector2 scale = projectile.GetComponent<Transform> ().localScale;
+				scale.x *= -1;
+				projectile.GetComponent<Transform> ().localScale = scale;
+
+				projectile.GetComponent<Rigidbody2D> ().velocity = new Vector2 (-1000f, 0);
+			}
 
 
 

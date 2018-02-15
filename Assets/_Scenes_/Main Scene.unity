@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 176472768}
   - component: {fileID: 176472767}
   - component: {fileID: 176472766}
+  - component: {fileID: 176472770}
   m_Layer: 0
   m_Name: Melee Hitbox 2
   m_TagString: Attack Hitbox
@@ -279,6 +280,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &176472770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 176472765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e29d7b5d6ecbf479e252b004df96d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 200
 --- !u!1 &234768847
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +467,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 272974474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 351595896}
@@ -787,13 +800,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 364659927}
-  m_LocalRotation: {x: -0, y: -0, z: 0.362943, w: 0.9318114}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 39, y: -24.8, z: 156.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 42.562}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &364659932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1141,7 +1154,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1749998463
+  randomSeed: 304425867
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5343,7 +5356,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1508994550}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -30.12, y: -30, z: 1}
+  m_LocalPosition: {x: -30.12, y: -40, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 142699787}
@@ -5410,13 +5423,13 @@ MonoBehaviour:
   speed: 150
   jump: 150
   dash: 100
-  finaldash: 600
+  finaldash: 200
   moveX: 0
   isFacingRight: 1
   isBlue: 1
   health: 3
   energy: 100
-  dodgeSpeed: 6000
+  dodgeSpeed: 1200
   knockback: 150
   energyText: {fileID: 823330772}
   heart1: {fileID: 1032289416}
@@ -5424,11 +5437,14 @@ MonoBehaviour:
   heart3: {fileID: 1544084498}
   face1: {fileID: 602369716}
   face2: {fileID: 306062575}
+  arrow: {fileID: 1047848102472762, guid: 0ca50f299685749bcb0e0ed004e9248d, type: 2}
   isHurt: 0
   combo: 
   fireRate: 0.5
   hasRanged: 1
   hasDodge: 1
+  hasTripleMelee: 1
+  hasSpeedyRegen: 1
   meleeHitbox: {fileID: 1495793670}
 --- !u!95 &1508994556
 Animator:
