@@ -24,11 +24,12 @@ public class EnemyBehavior1 : MonoBehaviour {
         {
             this.gameObject.SetActive(false);
         }
-	}
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
+    }
 
 
 	void FixedUpdate(){
-		transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0);
+		
 
 
 	}

@@ -120,7 +120,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //locks rotation
 
-		if (Input.GetButtonDown ("Fire3") && energy > 30f) {
+		if (Input.GetButtonDown ("Switch") && energy > 30f) {
 			energy = energy - 30;
 			isBlue = !isBlue;
 		}
@@ -167,7 +167,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			jumpCount++; // add one to jump count
         }
 
-      
+
 
         /*  if (Input.GetButton("Fire1")) // if fire1 button is called
           {
@@ -176,15 +176,19 @@ public class BluePlayerBehavior : MonoBehaviour {
 
           } */
 
-//		if( 0 < comboTimer && comboTimer< .3f && Input.GetButtonDown("Fire1") && energy > 20)
-//        {
-//            CoolCombo();
-//        }
+        //		if( 0 < comboTimer && comboTimer< .3f && Input.GetButtonDown("Fire1") && energy > 20)
+        //        {
+        //            CoolCombo();
+        //        }
 
         //else if (Input.GetButtonDown("Fire1") && comboIndex < combo.Length)
+        if (comboIndex > 2)
+            meleeEndTime = .9f;
+        else if (comboIndex != 2)
+            meleeEndTime = .3f;
 
 		timeForMelee += Time.deltaTime;
-		if (meleeEndTime > timeForMelee) 
+		if (meleeEndTime < timeForMelee) 
 		{ 
 			canAttack = true;
 		} 
@@ -195,20 +199,22 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-		if (Input.GetButtonDown ("Fire1") && energy > 5 && hasTripleMelee) {
+		if (Input.GetButtonDown ("Fire1") && energy > 5 && hasTripleMelee && canAttack == true) {
 
-			if (canAttack == true){
+			
 				timeForMelee = 0;
 			anim.SetInteger ("State", combo[comboIndex]);
 			comboIndex++;
 			
+                
+
 			
 
 			if (comboIndex > 2)
 				comboIndex = 0;
 //            comboTimer = 0;
 //            anim.SetInteger("State", 2);
-			}
+			
 
 		} else 
 			if (Input.GetButtonDown ("Fire1") && energy > 5 && !hasTripleMelee) {
@@ -262,18 +268,9 @@ public class BluePlayerBehavior : MonoBehaviour {
             
             StartCoroutine(RangedAttack());
 
-			GameObject projectile = Instantiate (arrow, new Vector2 (this.transform.position.x, this.transform.position.y - 1f), Quaternion.identity);
+			
 
-			if (isFacingRight)
-				projectile.GetComponent<Rigidbody2D> ().velocity = new Vector2 (1000f, 0);
-			else if (!isFacingRight) {
-				
-				Vector2 scale = projectile.GetComponent<Transform> ().localScale;
-				scale.x *= -1;
-				projectile.GetComponent<Transform> ().localScale = scale;
-
-				projectile.GetComponent<Rigidbody2D> ().velocity = new Vector2 (-1000f, 0);
-			}
+			
 
 
 
@@ -525,6 +522,22 @@ public class BluePlayerBehavior : MonoBehaviour {
         yield return new WaitForSeconds(0.3f);
         anim.SetInteger("State", 0);
     
+    }
+
+    void ShootProjectile()
+    {
+        GameObject projectile = Instantiate(arrow, new Vector2(this.transform.position.x, this.transform.position.y - 1f), Quaternion.identity);
+        if (isFacingRight)
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1000f, 0);
+        else if (!isFacingRight)
+        {
+
+            Vector2 scale = projectile.GetComponent<Transform>().localScale;
+            scale.x *= -1;
+            projectile.GetComponent<Transform>().localScale = scale;
+
+            projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(-1000f, 0);
+        }
     }
 
 
