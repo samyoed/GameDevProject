@@ -467,7 +467,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 272974474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 351595896}
@@ -1039,7 +1039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &544673466
 ParticleSystemRenderer:
   serializedVersion: 4
@@ -1154,7 +1154,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -745606277
+  randomSeed: 347897444
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -5445,6 +5445,7 @@ MonoBehaviour:
   hasDodge: 1
   hasTripleMelee: 1
   hasSpeedyRegen: 1
+  meleeEndTime: 0.2
   meleeHitbox: {fileID: 1495793670}
 --- !u!95 &1508994556
 Animator:
@@ -5818,15 +5819,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4615747657525294, guid: 6e061f864e419084c87d08cdd37f2fae, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -19.3
+      value: -11.6
       objectReference: {fileID: 0}
     - target: {fileID: 4615747657525294, guid: 6e061f864e419084c87d08cdd37f2fae, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -161.7
+      value: 38.6
       objectReference: {fileID: 0}
     - target: {fileID: 4615747657525294, guid: 6e061f864e419084c87d08cdd37f2fae, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -2.5941815
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4615747657525294, guid: 6e061f864e419084c87d08cdd37f2fae, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5847,6 +5848,16 @@ Prefab:
     - target: {fileID: 4615747657525294, guid: 6e061f864e419084c87d08cdd37f2fae, type: 2}
       propertyPath: m_RootOrder
       value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 61864360027737084, guid: 6e061f864e419084c87d08cdd37f2fae,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 18.547443
+      objectReference: {fileID: 0}
+    - target: {fileID: 61864360027737084, guid: 6e061f864e419084c87d08cdd37f2fae,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 24.502617
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6e061f864e419084c87d08cdd37f2fae, type: 2}

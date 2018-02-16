@@ -54,7 +54,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 	private bool isDashing = false;
 
 	private float timeForMelee = 0;
-	private float meleeEndTime = .2f;
+	public float meleeEndTime = .2f;
 	private bool canAttack = false;
 
 
@@ -199,25 +199,29 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-		if (Input.GetButtonDown ("Fire1") && energy > 5 && hasTripleMelee && canAttack == true) {
-
+//		if (Input.GetButtonDown ("Fire1") && energy > 5 && hasTripleMelee && canAttack == true) {
+//
+//			
+//				timeForMelee = 0;
+//			anim.SetInteger ("State", combo[comboIndex]);
+//			comboIndex++;
+//			
+//                
+//
+//			
+//
+//			if (comboIndex > 2)
+//				comboIndex = 0;
+////            comboTimer = 0;
+////            anim.SetInteger("State", 2);
 			
-				timeForMelee = 0;
-			anim.SetInteger ("State", combo[comboIndex]);
-			comboIndex++;
-			
-                
+		if(Input.GetButtonDown ("Fire2") && energy > 10 && hasTripleMelee)
+			{
+				CoolCombo();
 
-			
+		}
 
-			if (comboIndex > 2)
-				comboIndex = 0;
-//            comboTimer = 0;
-//            anim.SetInteger("State", 2);
-			
-
-		} else 
-			if (Input.GetButtonDown ("Fire1") && energy > 5 && !hasTripleMelee) {
+			if (Input.GetButtonDown ("Fire1") && energy > 5 ) {
 			
 				anim.SetInteger ("State", 2);
 
@@ -263,7 +267,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			energy = energy + .06f;
 		}
 
-        if(Input.GetButtonDown("Fire2") && hasRanged && energy > 5) // if fire2 is pressed and ranged is enabled then ranged attack
+        if(Input.GetButtonDown("Fire3") && hasRanged && energy > 5) // if fire2 is pressed and ranged is enabled then ranged attack
         {
             
             StartCoroutine(RangedAttack());
@@ -495,7 +499,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator FinalDash() //dash for 3rd melee attack
     {
 		isAttacking = true;
-		energy = energy - 5.0f;
+
         if (isFacingRight)
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(finaldash, 0);
         else
@@ -526,7 +530,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     void ShootProjectile()
     {
-        GameObject projectile = Instantiate(arrow, new Vector2(this.transform.position.x, this.transform.position.y - 1f), Quaternion.identity);
+        GameObject projectile = Instantiate(arrow, new Vector3(this.transform.position.x, this.transform.position.y - 1f , 1f), Quaternion.identity);
+
         if (isFacingRight)
             projectile.GetComponent<Rigidbody2D>().velocity = new Vector2(1000f, 0);
         else if (!isFacingRight)

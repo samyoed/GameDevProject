@@ -35,8 +35,8 @@ public class BarFill : MonoBehaviour {
             gameObject.GetComponent<Transform>().Translate(0, .1f, 0);
         }
 
-        Debug.Log("Energy: " + energy); //preliminary text
+       // Debug.Log("Energy: " + energy); //preliminary text
         
-        Debug.Log(gameObject.GetComponent<Transform>().position.y);
+      //  Debug.Log(gameObject.GetComponent<Transform>().position.y);
     }
 }
