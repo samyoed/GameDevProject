@@ -77,6 +77,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        
+
         int energyint = Mathf.RoundToInt(energy);
 
         energyText.text = "Energy:" + energyint;
@@ -238,13 +240,23 @@ public class BluePlayerBehavior : MonoBehaviour {
 //        }
 
 
-		if(GetComponent<Rigidbody2D>().velocity.y < 0 && !isOnGround && !Input.GetButton("Fire1"))
-        {
+		if(GetComponent<Rigidbody2D>().velocity.y < -1 && !isOnGround && !Input.GetButton("Fire1"))
+        //    if (GetComponent<Rigidbody2D>().velocity.y < 0 && !Input.GetButton("Fire1"))
+            {
             anim.SetInteger("State", 7);
             isFalling = true;
         }
         
-        
+        if(GetComponent<Rigidbody2D>().velocity.y < -1 && anim.GetInteger("State") == 1)
+        {
+            anim.SetInteger("State", 7);
+            isFalling = true;
+        }
+
+
+
+
+
         if (isFalling && isOnGround)
         {
             anim.SetInteger("State", 8);
@@ -295,7 +307,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			isDashing = true;
 			anim.SetInteger("State", 11);
 		}
-
+       // isOnGround = false; // will be false until collision with ground
 
     }
 
@@ -330,7 +342,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			isDashing = false;
 
 		}
-
+        
 
 	}
 
@@ -361,8 +373,9 @@ public class BluePlayerBehavior : MonoBehaviour {
             isOnGround = true;
             jumpCount = 0;
             hasDodged = false;
-           // anim.SetInteger("State", 5);
+            // anim.SetInteger("State", 5);
         }
+        
 
         if (coll.gameObject.tag == "Enemy" && !isInvincible){
             enemyDist = this.transform.position.x - coll.transform.position.x;
@@ -377,6 +390,11 @@ public class BluePlayerBehavior : MonoBehaviour {
             StartCoroutine(AttackInvicibility(coll));
             
         }
+    }
+
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        isOnGround = false;
     }
 
     void Jump()

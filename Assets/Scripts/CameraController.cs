@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour {
 
     private Vector3 offset;
     private bool isFacingRight;
+    public float cameraBack = -10;
     
 
 
@@ -29,23 +30,25 @@ public class CameraController : MonoBehaviour {
 
     void FixedUpdate()
     {
-        Vector3 desiredPosition = player.transform.position + offset;
+        Vector2 desiredPosition = player.transform.position + offset;
         
 
         if (!isFacingRight)
         {
-            desiredPosition = new Vector3(desiredPosition.x + leftOffset, desiredPosition.y);
+            desiredPosition = new Vector2(desiredPosition.x + leftOffset, desiredPosition.y);
 
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition , smoothSpeed * Time.deltaTime);
+            Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition , smoothSpeed * Time.deltaTime);
 
             transform.position = smoothedPosition;
         }
         else
         {
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
 
             transform.position = smoothedPosition;
         }
+
+        transform.position = new Vector3(transform.position.x, transform.position.y, cameraBack);
 
     }
 }
