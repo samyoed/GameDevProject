@@ -35,15 +35,15 @@ public class CameraController : MonoBehaviour {
 
         if (!isFacingRight)
         {
-            desiredPosition = new Vector2(desiredPosition.x + leftOffset, desiredPosition.y);
+            desiredPosition = new Vector3(desiredPosition.x + leftOffset, desiredPosition.y, -1);
 
-            Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition , smoothSpeed * Time.deltaTime);
+            Vector2 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition , smoothSpeed * Time.deltaTime);
 
             transform.position = smoothedPosition;
         }
         else
         {
-            Vector2 smoothedPosition = Vector2.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+            Vector2 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
 
             transform.position = smoothedPosition;
         }

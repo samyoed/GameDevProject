@@ -53,9 +53,9 @@ public class BluePlayerBehavior : MonoBehaviour {
 	private float dashEndTime;
 	private bool isDashing = false;
 
-	private float timeForMelee = 0;
-	public float meleeEndTime = .2f;
-	private bool canAttack = false;
+//	private float timeForMelee = 0;
+//	public float meleeEndTime = .2f;
+//	private bool canAttack = false;
 
 
 
@@ -76,7 +76,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		anim.SetInteger ("State", 0);
         
 
         int energyint = Mathf.RoundToInt(energy);
@@ -136,6 +136,10 @@ public class BluePlayerBehavior : MonoBehaviour {
         {
             FlipPlayerDirection();  //flip
         }
+
+
+		if (isOnGround)
+			Debug.Log ("isonground");
         if (moveX > 0.1 || moveX < -0.1)
         {
             if(isOnGround)
@@ -146,6 +150,11 @@ public class BluePlayerBehavior : MonoBehaviour {
             if(isOnGround)
             anim.SetInteger("State", 0);
         }
+
+//		if (anim.GetInteger("State") == 0 && (moveX > 0.1 || moveX < -0.1))
+//			{
+//			anim.SetInteger("State", 1);
+//			}
 
 		if(isBlue && !isHurt && !isAttacking){
         moveX = Input.GetAxis("Horizontal");  //if input is on horizontal axis
@@ -184,20 +193,23 @@ public class BluePlayerBehavior : MonoBehaviour {
         //        }
 
         //else if (Input.GetButtonDown("Fire1") && comboIndex < combo.Length)
-        if (comboIndex > 2)
-            meleeEndTime = .9f;
-        else if (comboIndex != 2)
-            meleeEndTime = .3f;
 
-		timeForMelee += Time.deltaTime;
-		if (meleeEndTime < timeForMelee) 
-		{ 
-			canAttack = true;
-		} 
-		else
-		{
-			canAttack = false;
-		}
+
+
+//        if (comboIndex > 2)
+//            meleeEndTime = .9f;
+//        else if (comboIndex != 2)
+//            meleeEndTime = .3f;
+//
+//		timeForMelee += Time.deltaTime;
+//		if (meleeEndTime < timeForMelee) 
+//		{ 
+//			canAttack = true;
+//		} 
+//		else
+//		{
+//			canAttack = false;
+//		}
 
 
 
@@ -220,8 +232,12 @@ public class BluePlayerBehavior : MonoBehaviour {
 		if(Input.GetButtonDown ("Fire2") && energy > 10 && hasTripleMelee)
 			{
 				CoolCombo();
-
+			isOnGround = true;
 		}
+
+		if (!Input.GetButtonDown ("Fire1") && anim.GetInteger ("State") == 2)
+			anim.SetInteger ("State", 0);
+
 
 			if (Input.GetButtonDown ("Fire1") && energy > 5 ) {
 			
@@ -229,6 +245,9 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 		}
+
+
+
 //        if(comboIndex > 0)
 //        {
 //            comboTimer += Time.deltaTime;
@@ -271,15 +290,15 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 		if (energy < 100 && !hasSpeedyRegen)
 		{
-			energy = energy + .03f;
+			energy = energy + .12f;
 		}
 
 		if (energy < 100 && hasSpeedyRegen) 
 		{
-			energy = energy + .06f;
+			energy = energy + .24f;
 		}
 
-        if(Input.GetButtonDown("Fire3") && hasRanged && energy > 5) // if fire2 is pressed and ranged is enabled then ranged attack
+        if(Input.GetButtonDown("Fire3") && hasRanged && energy > 10) // if fire2 is pressed and ranged is enabled then ranged attack
         {
             
             StartCoroutine(RangedAttack());
@@ -377,7 +396,7 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
         
 
-        if (coll.gameObject.tag == "Enemy" && !isInvincible){
+        if (coll.gameObject.tag == "Enemy" && !isInvincible){  // if its enemy and not invincible then take damage
             enemyDist = this.transform.position.x - coll.transform.position.x;
             StartCoroutine(Injured());
         }
@@ -390,6 +409,13 @@ public class BluePlayerBehavior : MonoBehaviour {
             StartCoroutine(AttackInvicibility(coll));
             
         }
+
+		if (coll.gameObject.tag == "Memory") { // if player collides with memory, gain power
+
+
+		}
+
+
     }
 
     void OnCollisionExit2D(Collision2D coll)
@@ -500,7 +526,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator Dash() //dash for first two melee attacks
     {
         isAttacking = true;
-		energy = energy - 5.0f;
+		energy = energy - 10.0f;
         if (isFacingRight)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dash, 0);
@@ -517,6 +543,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator FinalDash() //dash for 3rd melee attack
     {
 		isAttacking = true;
+
 
         if (isFacingRight)
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(finaldash, 0);
