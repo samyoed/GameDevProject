@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 32eaa6b83a08e48c18c3043039d49204
-timeCreated: 1519140643
+timeCreated: 1519175161
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -8,6 +8,7 @@ TextureImporter:
     21300002: temp memories_1
     21300004: temp memories_2
     21300006: temp memories_3
+    21300008: temp memories_4
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -130,6 +131,20 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: temp memories_4
+      rect:
+        serializedVersion: 2
+        x: 128
         y: 0
         width: 32
         height: 32

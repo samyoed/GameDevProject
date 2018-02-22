@@ -31,6 +31,13 @@ public class BluePlayerBehavior : MonoBehaviour {
     public GameObject face2;
 	public GameObject arrow;
 
+
+    public GameObject memory1;
+    public GameObject memory2;
+    public GameObject memory3;
+    public GameObject memory4;
+    public GameObject memory5;
+
     public bool isHurt = false;
     private float enemyDist;
     private bool enemyRight;
@@ -44,23 +51,23 @@ public class BluePlayerBehavior : MonoBehaviour {
     private float comboTimer;
     public float fireRate = 1;
 
-    public bool hasRanged = true;
-    public bool hasDodge = true;
-	public bool hasTripleMelee = true;
-	public bool hasSpeedyRegen = true;
+    public bool hasRanged = false;
+    public bool hasDodge = false;
+    public bool hasTripleMelee = false;
+	public bool hasSpeedyRegen = false;
 
 	private float dashStartTime;
 	private float dashEndTime;
 	private bool isDashing = false;
 
-//	private float timeForMelee = 0;
-//	public float meleeEndTime = .2f;
-//	private bool canAttack = false;
+    private float timeForMelee = 0;
+    public float meleeEndTime = .2f;
+    private bool canAttack = false;
+
+    public bool isDead = false;
 
 
-
-
-	public GameObject meleeHitbox;
+    public GameObject meleeHitbox;
 
     Animator anim;
 
@@ -76,7 +83,12 @@ public class BluePlayerBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		anim.SetInteger ("State", 0);
+
+        if (health == 0)
+            isDead = true;
+
+        if (isOnGround && !(moveX > 0.1 || moveX < -0.1))
+        anim.SetInteger ("State", 0);
         
 
         int energyint = Mathf.RoundToInt(energy);
@@ -93,8 +105,15 @@ public class BluePlayerBehavior : MonoBehaviour {
         //    gameObject.GetComponent<Rigidbody2D>().drag = 0;
 
 
-        switch (health) {
+        switch (health) { // shows however many hearts there are
 
+            case 0:
+                {
+                    heart1.SetActive(false);
+                    heart2.SetActive(false);
+                    heart3.SetActive(false);
+                    break;
+                }
             case 1:
                 {
                     heart1.SetActive(true);
@@ -139,7 +158,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 		if (isOnGround)
-			Debug.Log ("isonground");
+			
         if (moveX > 0.1 || moveX < -0.1)
         {
             if(isOnGround)
@@ -288,6 +307,8 @@ public class BluePlayerBehavior : MonoBehaviour {
             anim.SetInteger("State", 6);
         }
 
+        
+
 		if (energy < 100 && !hasSpeedyRegen)
 		{
 			energy = energy + .12f;
@@ -310,7 +331,6 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-
         }
 
 //        if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged)
@@ -326,7 +346,41 @@ public class BluePlayerBehavior : MonoBehaviour {
 			isDashing = true;
 			anim.SetInteger("State", 11);
 		}
-       // isOnGround = false; // will be false until collision with ground
+        // isOnGround = false; // will be false until collision with ground
+
+
+
+        if (memory1.GetComponent<MemoryBehavior1>().isActivated == true)
+        {
+
+        }
+
+        if (memory2.GetComponent<MemoryBehavior1>().isActivated == true)
+        {
+            hasRanged = true;
+        }
+
+        if (memory3.GetComponent<MemoryBehavior1>().isActivated == true)
+        {
+            hasDodge = true;
+        }
+
+        if (memory4.GetComponent<MemoryBehavior1>().isActivated == true)
+        {
+            hasTripleMelee = true;
+        }
+
+        if (memory5.GetComponent<MemoryBehavior1>().isActivated == true)
+        {
+            hasSpeedyRegen = true;
+        }
+
+        if (!(this.GetComponent<Rigidbody2D>().velocity.y < 0.1 || this.GetComponent<Rigidbody2D>().velocity.y > -0.1))
+        {
+            isOnGround = false;
+        }
+
+
 
     }
 
@@ -335,10 +389,13 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-	void FixedUpdate(){
+    void FixedUpdate(){
+
+       
 
 
-		if (!isDashing) {
+
+        if (!isDashing) {
 
 
 			return;
@@ -361,9 +418,9 @@ public class BluePlayerBehavior : MonoBehaviour {
 			isDashing = false;
 
 		}
-        
 
-	}
+        
+    }
 
    
    // ____________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -387,7 +444,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll)
     {
         //Debug.Log ("working");
-        if (coll.gameObject.tag == "Platform") // if 
+        if (coll.gameObject.tag == "Platform" && (this.GetComponent<Rigidbody2D>().velocity.y < 0.05 || this.GetComponent<Rigidbody2D>().velocity.y > -0.05)) // if 
         {
             isOnGround = true;
             jumpCount = 0;
@@ -420,6 +477,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     void OnCollisionExit2D(Collision2D coll)
     {
+        if(coll.gameObject.tag == "Platform")
         isOnGround = false;
     }
 
@@ -447,35 +505,36 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
-        if (!isOnGround && !enemyRight)
+        if (!enemyRight)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * knockback, ForceMode2D.Impulse);
             Debug.Log("air injured");
             health--;
         }
-        if(isOnGround && !enemyRight)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.left * knockback, ForceMode2D.Impulse);
-            Debug.Log("injured");
-            health--;
-        }
-        if (!isOnGround && enemyRight)
+        //if(isOnGround && !enemyRight)
+        //{
+        //    GetComponent<Rigidbody2D>().AddForce(Vector2.left * knockback, ForceMode2D.Impulse);
+        //    Debug.Log("injured");
+        //    health--;
+        //}
+        if (enemyRight)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 1) * knockback, ForceMode2D.Impulse);
             Debug.Log("air injured");
             health--;
         }
-        if (isOnGround && enemyRight)
-        {
-            GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
-            Debug.Log("injured");
-            health--;
-        }
+        //if (isOnGround && enemyRight)
+        //{
+        //    GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
+        //    Debug.Log("injured");
+        //    health--;
+        //}
 
 
         yield return new WaitForSeconds(.3f);
         
         isHurt = false;
+        
     }
 
     IEnumerator BlinkSprite()

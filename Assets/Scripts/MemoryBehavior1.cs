@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MemoryBehavior1 : MonoBehaviour {
 
-	bool isActivated = false; // will activate the booleans in the player behavior
+	public bool isActivated = false; // will activate the booleans in the player behavior
 
 
 	// Use this for initialization

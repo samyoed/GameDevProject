@@ -24,23 +24,23 @@ public class ProjectileBehav : MonoBehaviour {
 		if (transform.localScale.x == 1) {
 			if ((currentPos - startPos) > 1000)
 				Destroy (gameObject);
-		} 
+		}
 
-//		if (transform.localScale.x == -1)
-//		{
-//
-//			if ((currentPos - startPos) < 1000)
-//				Destroy (gameObject);
-//		 
-//
-//		}
+        //if (transform.localScale.x == -1)
+        //{
+
+        //    if ((currentPos + startPos) > 1000)
+        //        Destroy(gameObject);
 
 
+        //}
 
-	}
 
 
-   void OnCollisionEnter2D(Collision2D coll)
+    }
+
+
+    void OnCollisionEnter2D(Collision2D coll)
     {
 		Debug.Log ("shot");
 
