@@ -248,7 +248,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 ////            comboTimer = 0;
 ////            anim.SetInteger("State", 2);
 			
-		if(Input.GetButtonDown ("Fire2") && energy > 10 && hasTripleMelee)
+		if(Input.GetButtonDown ("Fire2") && energy > 10 && hasTripleMelee && isOnGround)
 			{
 				CoolCombo();
 			isOnGround = true;
@@ -444,7 +444,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D coll)
     {
         //Debug.Log ("working");
-        if (coll.gameObject.tag == "Platform" && (this.GetComponent<Rigidbody2D>().velocity.y < 0.05 || this.GetComponent<Rigidbody2D>().velocity.y > -0.05)) // if 
+        //if (coll.gameObject.tag == "Platform" && (this.GetComponent<Rigidbody2D>().velocity.y < 0.05 || this.GetComponent<Rigidbody2D>().velocity.y > -0.05)) // if 
+        if (coll.gameObject.tag == "Platform" && coll.contacts[0].point.y < transform.position.y && coll.contacts[1].point.y < transform.position.y)
         {
             isOnGround = true;
             jumpCount = 0;

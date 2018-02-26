@@ -783,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1508994550}
-  smoothSpeed: 7
+  smoothSpeed: 4
   leftOffset: -100
   cameraBack: -10
 --- !u!1001 &277179114
@@ -8050,7 +8050,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1508994550}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: b7ff58c4d872bcd4f8e1a6527e04319d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
