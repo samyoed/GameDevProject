@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour {
+public class SceneLoader : MonoBehaviour {
 
 
     public GameObject blue;
@@ -21,5 +21,11 @@ public class GameManager : MonoBehaviour {
             SceneManager.LoadScene("End Game");
         }
         
+    }
+
+   public void goBack()
+    {
+        SceneManager.LoadScene("Main Scene");
+
     }
 }

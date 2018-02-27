@@ -65,7 +65,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     private bool canAttack = false;
 
     public bool isDead = false;
-
+    public bool bossDoor1 = false;
 
     public GameObject meleeHitbox;
 
@@ -381,7 +381,12 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
 
+        if(hasRanged && hasDodge && hasTripleMelee && hasSpeedyRegen && isOnGround)
+        {
 
+            bossDoor1 = true;
+
+        }
     }
 
 

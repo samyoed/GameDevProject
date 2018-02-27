@@ -9,46 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1544389346012074}
+  m_RootGameObject: {fileID: 1716833456280260}
   m_IsPrefabParent: 1
---- !u!1 &1544389346012074
+--- !u!1 &1716833456280260
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4515311278378756}
-  - component: {fileID: 33895733594344180}
-  - component: {fileID: 23224777446665760}
-  - component: {fileID: 114167781499146054}
-  - component: {fileID: 61549000153201734}
+  - component: {fileID: 4239538585969704}
+  - component: {fileID: 33757873866986870}
+  - component: {fileID: 23092469553089698}
+  - component: {fileID: 114658406468056218}
+  - component: {fileID: 61412093568187928}
+  - component: {fileID: 114119925858069882}
   m_Layer: 0
-  m_Name: Ladder
+  m_Name: BossDoor1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4515311278378756
+--- !u!4 &4239538585969704
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1544389346012074}
+  m_GameObject: {fileID: 1716833456280260}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 958, y: -457.2, z: -85}
-  m_LocalScale: {x: -9.616139, y: -341.3, z: 1}
+  m_LocalPosition: {x: 4249, y: 1146, z: 84.71}
+  m_LocalScale: {x: -4906.8364, y: -1717.691, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23224777446665760
+--- !u!23 &23092469553089698
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1544389346012074}
+  m_GameObject: {fileID: 1716833456280260}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -57,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 501bac01617c1ed4daa1dade4eecf046, type: 2}
+  - {fileID: 2100000, guid: 0de0e99c0b6787d49a91693ee606a958, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,26 +78,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33895733594344180
+--- !u!33 &33757873866986870
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1544389346012074}
+  m_GameObject: {fileID: 1716833456280260}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!61 &61549000153201734
+--- !u!61 &61412093568187928
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1544389346012074}
+  m_GameObject: {fileID: 1716833456280260}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.000000029802322}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -107,18 +108,31 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.99999994, y: 0.99999994}
   m_EdgeRadius: 0
---- !u!114 &114167781499146054
+--- !u!114 &114119925858069882
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1544389346012074}
+  m_GameObject: {fileID: 1716833456280260}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197c3fca2326e254a8d2db36fb1fb9b1, type: 3}
+  m_Script: {fileID: 11500000, guid: dcfec3455a369aa4996a1754fb548f98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 150
-  upSpeed: 10.77
+  player: {fileID: 0}
+  liftSpeed: 100
+  maxHeight: 500
+--- !u!114 &114658406468056218
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1716833456280260}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4243d67a65b1bb14080a8a31eb220349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pixelsPerUnit: 1
