@@ -2,10 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckpointBehav : MonoBehaviour {
-
-    
-
+public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -16,17 +13,4 @@ public class CheckpointBehav : MonoBehaviour {
 	void Update () {
 		
 	}
-
-
-
-    private void OnTriggerEnter2D(Collider2D coll)
-    {
-        if(coll.gameObject.tag == "Attack Hitbox")
-        {
-
-
-        }
-    }
-
-
 }

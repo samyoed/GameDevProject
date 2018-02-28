@@ -47,7 +47,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     
 
     public int[] combo;
-    private int comboIndex = 0;
+    //private int comboIndex = 0;
     private float comboTimer;
     public float fireRate = 1;
 
@@ -60,9 +60,9 @@ public class BluePlayerBehavior : MonoBehaviour {
 	private float dashEndTime;
 	private bool isDashing = false;
 
-    private float timeForMelee = 0;
-    public float meleeEndTime = .2f;
-    private bool canAttack = false;
+//    private float timeForMelee = 0;
+//    public float meleeEndTime = .2f;
+//    private bool canAttack = false;
 
     public bool isDead = false;
     public bool bossDoor1 = false;
@@ -71,13 +71,43 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     Animator anim;
 
+
+
+	private static BluePlayerBehavior instance = null;
+
+
+
+
 	// Use this for initialization
+
+	void Awake(){
+		
+
+		if (instance !=null && instance != this){
+			Destroy (this.gameObject);
+		}
+		else
+		{
+			instance = this;
+
+		}
+		DontDestroyOnLoad (this);
+	}
+
 	void Start () {
         anim = GetComponent<Animator>();
-        combo = new int[] { 2, 3, 4 };
+       // combo = new int[] { 2, 3, 4 };
 		//meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
         face1.SetActive(true);
         face2.SetActive(false);
+
+
+
+
+
+
+
+
         
     }
 	

@@ -6,7 +6,6 @@ public class HitboxManager : MonoBehaviour {
 
 	public GameObject melee1Hitbox;
 	public GameObject melee2Hitbox;
-	public GameObject rangedHitbox;
 
 
 
@@ -16,7 +15,6 @@ public class HitboxManager : MonoBehaviour {
 
         melee1Hitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
         melee2Hitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        rangedHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
 
 
@@ -50,11 +48,5 @@ IEnumerator FinalDashHit()
 		melee2Hitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
 }
 
-IEnumerator RangedHit()
 
-{
-		rangedHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = true;
-	yield return new WaitForSeconds(0.2f);
-		rangedHitbox.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-}
 }
