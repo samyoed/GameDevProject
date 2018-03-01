@@ -73,7 +73,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-	private static BluePlayerBehavior instance = null;
+	//private static BluePlayerBehavior instance;
 
 
 
@@ -81,18 +81,25 @@ public class BluePlayerBehavior : MonoBehaviour {
 	// Use this for initialization
 
 	void Awake(){
-		
 
-		if (instance !=null && instance != this){
-			Destroy (this.gameObject);
-		}
-		else
-		{
-			instance = this;
 
-		}
-		DontDestroyOnLoad (this);
-	}
+        //if (instance !=null && instance != this){
+        //	Destroy (this.gameObject);
+        //}
+        //else
+        //{
+        //	instance = this;
+
+        //}
+        //DontDestroyOnLoad (this);
+
+        //DontDestroyOnLoad(this);
+
+        //if (FindObjectsOfType(GetType()).Length > 1)
+        //{
+        //    Destroy(gameObject);
+        //}
+    }
 
 	void Start () {
         anim = GetComponent<Animator>();
@@ -215,9 +222,9 @@ public class BluePlayerBehavior : MonoBehaviour {
           //  anim.SetInteger("State", 5);
 
 		if (Input.GetButton ("Jump") && GetComponent<Rigidbody2D> ().velocity.y > 0) //
-			GetComponent<Rigidbody2D> ().gravityScale = 25;
+			GetComponent<Rigidbody2D> ().gravityScale = 35;
 		else
-			GetComponent<Rigidbody2D> ().gravityScale = 55;
+			GetComponent<Rigidbody2D> ().gravityScale = 70;
 
         if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2) //if jump button is hit and player hasn't done more than 2 jumps
 		//if (Input.GetButtonDown("Jump"))

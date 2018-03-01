@@ -23,12 +23,12 @@ public class CheckpointBehav : MonoBehaviour {
 
 
 
-     void OnTriggerEnter2D(Collider2D coll)
+     void OnTriggerStay2D(Collider2D coll)
     {
 		Debug.Log ("collided");
 
 
-        if(coll.gameObject.tag == "Player")
+        if(coll.gameObject.tag == "Player" && Input.GetButtonDown("Vertical"))
         {
 			StartCoroutine (textShow());
 			Debug.Log("checkpoint get");
