@@ -285,7 +285,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 ////            comboTimer = 0;
 ////            anim.SetInteger("State", 2);
 			
-		if(Input.GetButtonDown ("Fire2") && energy > 10 && hasTripleMelee && isOnGround)
+		if(Input.GetButtonDown ("Fire2") && energy > 15 && hasTripleMelee && isOnGround)
 			{
 				CoolCombo();
 			isOnGround = true;
