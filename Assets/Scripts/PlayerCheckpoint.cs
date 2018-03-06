@@ -5,10 +5,14 @@ using UnityEngine;
 public class PlayerCheckpoint : MonoBehaviour
 {
 
-    static public Vector2 checkpointPosition;
-    
+    public static Vector2 checkpointPosition;
+    public static bool hasRanged = false;
+    public static bool hasDodge = false;
+    public static bool hasTripleMelee = false;
+    public static bool hasSpeedyRegen = false;
+    public static int health = 3;
 
-	void Awake(){
+    void Awake(){
 
 		//checkpointPosition = transform.position;
 
@@ -19,9 +23,18 @@ public class PlayerCheckpoint : MonoBehaviour
         if(checkpointPosition != new Vector2 ( 0,0))
 		transform.position = checkpointPosition;
         Debug.Log("checkpoint Position" + checkpointPosition);
-        
 
-	}
+        GetComponent<BluePlayerBehavior>().hasRanged = hasRanged;  // saves progress of the checkpoints
+        GetComponent<BluePlayerBehavior>().hasDodge = hasDodge;
+        GetComponent<BluePlayerBehavior>().hasTripleMelee = hasTripleMelee;
+        GetComponent<BluePlayerBehavior>().hasSpeedyRegen = hasSpeedyRegen;
+
+
+
+
+        GetComponent<BluePlayerBehavior>().health = health; // saves progress of health
+
+    }
 
     private void Update()
     {
@@ -39,6 +52,21 @@ public class PlayerCheckpoint : MonoBehaviour
             checkpointPosition = coll.gameObject.transform.position;
 
             Debug.Log("checkpoint Position" + checkpointPosition);
+
+            hasRanged = GetComponent<BluePlayerBehavior>().hasRanged;
+            hasDodge = GetComponent<BluePlayerBehavior>().hasDodge;
+            hasTripleMelee = GetComponent<BluePlayerBehavior>().hasTripleMelee;
+            hasSpeedyRegen = GetComponent<BluePlayerBehavior>().hasSpeedyRegen;
+            health = GetComponent<BluePlayerBehavior>().health;
+
+
+
+
+
+
+
+
+
 
 
 

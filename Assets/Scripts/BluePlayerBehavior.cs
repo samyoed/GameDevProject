@@ -295,7 +295,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			anim.SetInteger ("State", 0);
 
 
-			if (Input.GetButtonDown ("Fire1") && energy > 5 ) {
+			if (Input.GetButtonDown ("Fire1") && energy > 15 ) {
 			
 				anim.SetInteger ("State", 2);
 
@@ -348,7 +348,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 		if (energy < 100 && !hasSpeedyRegen)
 		{
-			energy = energy + .12f;
+			energy = energy + .10f;
 		}
 
 		if (energy < 100 && hasSpeedyRegen) 
@@ -356,7 +356,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			energy = energy + .24f;
 		}
 
-        if(Input.GetButtonDown("Fire3") && hasRanged && energy > 10) // if fire2 is pressed and ranged is enabled then ranged attack
+        if(Input.GetButtonDown("Fire3") && hasRanged && energy > 15) // if fire2 is pressed and ranged is enabled then ranged attack
         {
             
             StartCoroutine(RangedAttack());
@@ -376,7 +376,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 //            hasDodged = true;
 //        }
 
-		if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged) {
+		if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged && energy > 15) {
+            energy -= 15;
 			dashStartTime = Time.timeSinceLevelLoad + 0.2f;
 			dashEndTime = Time.timeSinceLevelLoad + 0.3f;
 			hasDodged = true;
@@ -397,9 +398,19 @@ public class BluePlayerBehavior : MonoBehaviour {
             hasRanged = true;
         }
 
+        if (hasRanged)
+        {
+            memory2.GetComponent<MemoryBehavior1>().isActivated = true;
+        }
+
         if (memory3.GetComponent<MemoryBehavior1>().isActivated == true)
         {
             hasDodge = true;
+        }
+
+        if (hasDodge)
+        {
+            memory3.GetComponent<MemoryBehavior1>().isActivated = true;
         }
 
         if (memory4.GetComponent<MemoryBehavior1>().isActivated == true)
@@ -407,15 +418,42 @@ public class BluePlayerBehavior : MonoBehaviour {
             hasTripleMelee = true;
         }
 
+        if (hasTripleMelee)
+        {
+            memory4.GetComponent<MemoryBehavior1>().isActivated = true;
+        }
+
         if (memory5.GetComponent<MemoryBehavior1>().isActivated == true)
         {
             hasSpeedyRegen = true;
+        }
+
+        if (hasSpeedyRegen)
+        {
+            memory5.GetComponent<MemoryBehavior1>().isActivated = true;
         }
 
         if (!(this.GetComponent<Rigidbody2D>().velocity.y < 0.1 || this.GetComponent<Rigidbody2D>().velocity.y > -0.1))
         {
             isOnGround = false;
         }
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         if(hasRanged && hasDodge && hasTripleMelee && hasSpeedyRegen && isOnGround)
@@ -628,7 +666,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator Dash() //dash for first two melee attacks
     {
         isAttacking = true;
-		energy = energy - 10.0f;
+		energy = energy - 15.0f;
         if (isFacingRight)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dash, 0);
