@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 12c9a19bfcc0ab14f9298f9e7d6d9e1f
-timeCreated: 1518488656
+timeCreated: 1522266507
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -111,6 +111,29 @@ TextureImporter:
     21300208: Character Idea2 Almost Final_104
     21300210: Character Idea2 Almost Final_105
     21300212: Character Idea2 Almost Final_106
+    21300214: Character Idea2 Almost Final_107
+    21300216: Character Idea2 Almost Final_108
+    21300218: Character Idea2 Almost Final_109
+    21300220: Character Idea2 Almost Final_110
+    21300222: Character Idea2 Almost Final_111
+    21300224: Character Idea2 Almost Final_112
+    21300226: Character Idea2 Almost Final_113
+    21300228: Character Idea2 Almost Final_114
+    21300230: Character Idea2 Almost Final_115
+    21300232: Character Idea2 Almost Final_116
+    21300234: Character Idea2 Almost Final_117
+    21300236: Character Idea2 Almost Final_118
+    21300238: Character Idea2 Almost Final_119
+    21300240: Character Idea2 Almost Final_120
+    21300242: Character Idea2 Almost Final_121
+    21300244: Character Idea2 Almost Final_122
+    21300246: Character Idea2 Almost Final_123
+    21300248: Character Idea2 Almost Final_124
+    21300250: Character Idea2 Almost Final_125
+    21300252: Character Idea2 Almost Final_126
+    21300254: Character Idea2 Almost Final_127
+    21300256: Character Idea2 Almost Final_128
+    21300258: Character Idea2 Almost Final_129
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -191,7 +214,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -205,7 +228,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 68
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -219,7 +242,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 136
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -233,7 +256,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 204
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -247,7 +270,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 272
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -261,7 +284,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 340
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -275,7 +298,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 408
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -289,7 +312,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 476
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -303,7 +326,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 544
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -317,7 +340,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 612
-        y: 0
+        y: 520
         width: 68
         height: 40
       alignment: 0
@@ -330,8 +353,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_10
       rect:
         serializedVersion: 2
-        x: 680
-        y: 0
+        x: 0
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -344,8 +367,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_11
       rect:
         serializedVersion: 2
-        x: 748
-        y: 0
+        x: 68
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -358,8 +381,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_12
       rect:
         serializedVersion: 2
-        x: 816
-        y: 0
+        x: 136
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -372,8 +395,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_13
       rect:
         serializedVersion: 2
-        x: 884
-        y: 0
+        x: 204
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -386,8 +409,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_14
       rect:
         serializedVersion: 2
-        x: 952
-        y: 0
+        x: 272
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -400,8 +423,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_15
       rect:
         serializedVersion: 2
-        x: 1020
-        y: 0
+        x: 340
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -414,8 +437,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_16
       rect:
         serializedVersion: 2
-        x: 1088
-        y: 0
+        x: 408
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -428,8 +451,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_17
       rect:
         serializedVersion: 2
-        x: 1156
-        y: 0
+        x: 476
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -442,8 +465,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_18
       rect:
         serializedVersion: 2
-        x: 1224
-        y: 0
+        x: 544
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -456,8 +479,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_19
       rect:
         serializedVersion: 2
-        x: 1292
-        y: 0
+        x: 612
+        y: 480
         width: 68
         height: 40
       alignment: 0
@@ -470,8 +493,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_20
       rect:
         serializedVersion: 2
-        x: 1360
-        y: 0
+        x: 0
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -484,8 +507,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_21
       rect:
         serializedVersion: 2
-        x: 1428
-        y: 0
+        x: 68
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -498,8 +521,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_22
       rect:
         serializedVersion: 2
-        x: 1496
-        y: 0
+        x: 136
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -512,8 +535,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_23
       rect:
         serializedVersion: 2
-        x: 1564
-        y: 0
+        x: 204
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -526,8 +549,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_24
       rect:
         serializedVersion: 2
-        x: 1632
-        y: 0
+        x: 272
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -540,8 +563,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_25
       rect:
         serializedVersion: 2
-        x: 1700
-        y: 0
+        x: 340
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -554,8 +577,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_26
       rect:
         serializedVersion: 2
-        x: 1768
-        y: 0
+        x: 408
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -568,8 +591,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_27
       rect:
         serializedVersion: 2
-        x: 1836
-        y: 0
+        x: 476
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -582,8 +605,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_28
       rect:
         serializedVersion: 2
-        x: 1904
-        y: 0
+        x: 544
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -596,8 +619,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_29
       rect:
         serializedVersion: 2
-        x: 1972
-        y: 0
+        x: 612
+        y: 440
         width: 68
         height: 40
       alignment: 0
@@ -610,8 +633,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_30
       rect:
         serializedVersion: 2
-        x: 2040
-        y: 0
+        x: 0
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -624,8 +647,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_31
       rect:
         serializedVersion: 2
-        x: 2108
-        y: 0
+        x: 68
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -638,8 +661,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_32
       rect:
         serializedVersion: 2
-        x: 2176
-        y: 0
+        x: 136
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -652,8 +675,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_33
       rect:
         serializedVersion: 2
-        x: 2244
-        y: 0
+        x: 204
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -666,8 +689,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_34
       rect:
         serializedVersion: 2
-        x: 2312
-        y: 0
+        x: 272
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -680,8 +703,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_35
       rect:
         serializedVersion: 2
-        x: 2380
-        y: 0
+        x: 340
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -694,8 +717,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_36
       rect:
         serializedVersion: 2
-        x: 2448
-        y: 0
+        x: 408
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -708,8 +731,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_37
       rect:
         serializedVersion: 2
-        x: 2516
-        y: 0
+        x: 476
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -722,8 +745,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_38
       rect:
         serializedVersion: 2
-        x: 2584
-        y: 0
+        x: 544
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -736,8 +759,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_39
       rect:
         serializedVersion: 2
-        x: 2652
-        y: 0
+        x: 612
+        y: 400
         width: 68
         height: 40
       alignment: 0
@@ -750,8 +773,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_40
       rect:
         serializedVersion: 2
-        x: 2720
-        y: 0
+        x: 0
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -764,8 +787,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_41
       rect:
         serializedVersion: 2
-        x: 2788
-        y: 0
+        x: 68
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -778,8 +801,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_42
       rect:
         serializedVersion: 2
-        x: 2856
-        y: 0
+        x: 136
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -792,8 +815,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_43
       rect:
         serializedVersion: 2
-        x: 2924
-        y: 0
+        x: 204
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -806,8 +829,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_44
       rect:
         serializedVersion: 2
-        x: 2992
-        y: 0
+        x: 272
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -820,8 +843,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_45
       rect:
         serializedVersion: 2
-        x: 3060
-        y: 0
+        x: 340
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -834,8 +857,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_46
       rect:
         serializedVersion: 2
-        x: 3128
-        y: 0
+        x: 408
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -848,8 +871,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_47
       rect:
         serializedVersion: 2
-        x: 3196
-        y: 0
+        x: 476
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -862,8 +885,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_48
       rect:
         serializedVersion: 2
-        x: 3264
-        y: 0
+        x: 544
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -876,8 +899,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_49
       rect:
         serializedVersion: 2
-        x: 3332
-        y: 0
+        x: 612
+        y: 360
         width: 68
         height: 40
       alignment: 0
@@ -890,8 +913,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_50
       rect:
         serializedVersion: 2
-        x: 3400
-        y: 0
+        x: 0
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -904,8 +927,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_51
       rect:
         serializedVersion: 2
-        x: 3468
-        y: 0
+        x: 68
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -918,8 +941,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_52
       rect:
         serializedVersion: 2
-        x: 3536
-        y: 0
+        x: 136
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -932,8 +955,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_53
       rect:
         serializedVersion: 2
-        x: 3604
-        y: 0
+        x: 204
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -946,8 +969,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_54
       rect:
         serializedVersion: 2
-        x: 3672
-        y: 0
+        x: 272
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -960,8 +983,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_55
       rect:
         serializedVersion: 2
-        x: 3740
-        y: 0
+        x: 340
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -974,8 +997,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_56
       rect:
         serializedVersion: 2
-        x: 3808
-        y: 0
+        x: 408
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -988,8 +1011,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_57
       rect:
         serializedVersion: 2
-        x: 3876
-        y: 0
+        x: 476
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -1002,8 +1025,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_58
       rect:
         serializedVersion: 2
-        x: 3944
-        y: 0
+        x: 544
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -1016,8 +1039,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_59
       rect:
         serializedVersion: 2
-        x: 4012
-        y: 0
+        x: 612
+        y: 320
         width: 68
         height: 40
       alignment: 0
@@ -1030,8 +1053,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_60
       rect:
         serializedVersion: 2
-        x: 4080
-        y: 0
+        x: 0
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1044,8 +1067,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_61
       rect:
         serializedVersion: 2
-        x: 4148
-        y: 0
+        x: 68
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1058,8 +1081,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_62
       rect:
         serializedVersion: 2
-        x: 4216
-        y: 0
+        x: 136
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1072,8 +1095,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_63
       rect:
         serializedVersion: 2
-        x: 4284
-        y: 0
+        x: 204
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1086,8 +1109,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_64
       rect:
         serializedVersion: 2
-        x: 4352
-        y: 0
+        x: 272
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1100,8 +1123,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_65
       rect:
         serializedVersion: 2
-        x: 4420
-        y: 0
+        x: 340
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1114,8 +1137,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_66
       rect:
         serializedVersion: 2
-        x: 4488
-        y: 0
+        x: 408
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1128,8 +1151,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_67
       rect:
         serializedVersion: 2
-        x: 4556
-        y: 0
+        x: 476
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1142,8 +1165,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_68
       rect:
         serializedVersion: 2
-        x: 4624
-        y: 0
+        x: 544
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1156,8 +1179,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_69
       rect:
         serializedVersion: 2
-        x: 4692
-        y: 0
+        x: 612
+        y: 280
         width: 68
         height: 40
       alignment: 0
@@ -1170,8 +1193,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_70
       rect:
         serializedVersion: 2
-        x: 4760
-        y: 0
+        x: 0
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1184,8 +1207,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_71
       rect:
         serializedVersion: 2
-        x: 4828
-        y: 0
+        x: 68
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1198,8 +1221,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_72
       rect:
         serializedVersion: 2
-        x: 4896
-        y: 0
+        x: 136
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1212,8 +1235,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_73
       rect:
         serializedVersion: 2
-        x: 4964
-        y: 0
+        x: 204
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1226,8 +1249,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_74
       rect:
         serializedVersion: 2
-        x: 5032
-        y: 0
+        x: 272
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1240,8 +1263,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_75
       rect:
         serializedVersion: 2
-        x: 5100
-        y: 0
+        x: 340
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1254,8 +1277,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_76
       rect:
         serializedVersion: 2
-        x: 5168
-        y: 0
+        x: 408
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1268,8 +1291,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_77
       rect:
         serializedVersion: 2
-        x: 5236
-        y: 0
+        x: 476
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1282,8 +1305,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_78
       rect:
         serializedVersion: 2
-        x: 5304
-        y: 0
+        x: 544
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1296,8 +1319,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_79
       rect:
         serializedVersion: 2
-        x: 5372
-        y: 0
+        x: 612
+        y: 240
         width: 68
         height: 40
       alignment: 0
@@ -1310,8 +1333,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_80
       rect:
         serializedVersion: 2
-        x: 5440
-        y: 0
+        x: 0
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1324,8 +1347,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_81
       rect:
         serializedVersion: 2
-        x: 5508
-        y: 0
+        x: 68
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1338,8 +1361,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_82
       rect:
         serializedVersion: 2
-        x: 5576
-        y: 0
+        x: 136
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1352,8 +1375,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_83
       rect:
         serializedVersion: 2
-        x: 5644
-        y: 0
+        x: 204
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1366,8 +1389,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_84
       rect:
         serializedVersion: 2
-        x: 5712
-        y: 0
+        x: 272
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1380,8 +1403,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_85
       rect:
         serializedVersion: 2
-        x: 5780
-        y: 0
+        x: 340
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1394,8 +1417,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_86
       rect:
         serializedVersion: 2
-        x: 5848
-        y: 0
+        x: 408
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1408,8 +1431,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_87
       rect:
         serializedVersion: 2
-        x: 5916
-        y: 0
+        x: 476
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1422,8 +1445,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_88
       rect:
         serializedVersion: 2
-        x: 5984
-        y: 0
+        x: 544
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1436,8 +1459,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_89
       rect:
         serializedVersion: 2
-        x: 6052
-        y: 0
+        x: 612
+        y: 200
         width: 68
         height: 40
       alignment: 0
@@ -1450,8 +1473,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_90
       rect:
         serializedVersion: 2
-        x: 6120
-        y: 0
+        x: 0
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1464,8 +1487,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_91
       rect:
         serializedVersion: 2
-        x: 6188
-        y: 0
+        x: 68
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1478,8 +1501,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_92
       rect:
         serializedVersion: 2
-        x: 6256
-        y: 0
+        x: 136
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1492,8 +1515,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_93
       rect:
         serializedVersion: 2
-        x: 6324
-        y: 0
+        x: 204
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1506,8 +1529,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_94
       rect:
         serializedVersion: 2
-        x: 6392
-        y: 0
+        x: 272
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1520,8 +1543,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_95
       rect:
         serializedVersion: 2
-        x: 6460
-        y: 0
+        x: 340
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1534,8 +1557,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_96
       rect:
         serializedVersion: 2
-        x: 6528
-        y: 0
+        x: 408
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1548,8 +1571,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_97
       rect:
         serializedVersion: 2
-        x: 6596
-        y: 0
+        x: 476
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1562,8 +1585,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_98
       rect:
         serializedVersion: 2
-        x: 6664
-        y: 0
+        x: 544
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1576,8 +1599,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_99
       rect:
         serializedVersion: 2
-        x: 6732
-        y: 0
+        x: 612
+        y: 160
         width: 68
         height: 40
       alignment: 0
@@ -1590,8 +1613,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_100
       rect:
         serializedVersion: 2
-        x: 6800
-        y: 0
+        x: 0
+        y: 120
         width: 68
         height: 40
       alignment: 0
@@ -1604,8 +1627,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_101
       rect:
         serializedVersion: 2
-        x: 6868
-        y: 0
+        x: 68
+        y: 120
         width: 68
         height: 40
       alignment: 0
@@ -1618,8 +1641,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_102
       rect:
         serializedVersion: 2
-        x: 6936
-        y: 0
+        x: 136
+        y: 120
         width: 68
         height: 40
       alignment: 0
@@ -1632,8 +1655,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_103
       rect:
         serializedVersion: 2
-        x: 7004
-        y: 0
+        x: 204
+        y: 120
         width: 68
         height: 40
       alignment: 0
@@ -1646,8 +1669,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_104
       rect:
         serializedVersion: 2
-        x: 7072
-        y: 0
+        x: 272
+        y: 120
         width: 68
         height: 40
       alignment: 0
@@ -1660,8 +1683,8 @@ TextureImporter:
       name: Character Idea2 Almost Final_105
       rect:
         serializedVersion: 2
-        x: 7140
-        y: 0
+        x: 340
+        y: 120
         width: 68
         height: 40
       alignment: 0
@@ -1674,7 +1697,329 @@ TextureImporter:
       name: Character Idea2 Almost Final_106
       rect:
         serializedVersion: 2
-        x: 7208
+        x: 408
+        y: 120
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_107
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 120
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_108
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 120
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_109
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 120
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_110
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_111
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_112
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_113
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_114
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_115
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_116
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_117
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_118
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 80
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_119
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_120
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_121
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_122
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_123
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_124
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_125
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_126
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_127
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_128
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 40
+        width: 68
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Character Idea2 Almost Final_129
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 68
         height: 40

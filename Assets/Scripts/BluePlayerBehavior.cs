@@ -107,6 +107,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 		//meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
         face1.SetActive(true);
         face2.SetActive(false);
+        GetComponent<Animator>().Play("Blue Respawn");
 
 
 
@@ -115,7 +116,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-        
+
     }
 	
 	// Update is called once per frame
