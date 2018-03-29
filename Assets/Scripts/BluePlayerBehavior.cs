@@ -44,7 +44,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     private bool isInvincible = false;
     private bool isFalling = false;
     private bool hasDodged = false;
-    
+	public bool canMove = true;
 
     public int[] combo;
     //private int comboIndex = 0;
@@ -107,7 +107,9 @@ public class BluePlayerBehavior : MonoBehaviour {
 		//meleeHitbox.gameObject.GetComponent<BoxCollider2D> ().enabled = false;
         face1.SetActive(true);
         face2.SetActive(false);
-        GetComponent<Animator>().Play("Blue Respawn");
+		canMove = false;
+
+		StartCoroutine (Woke());
 
 
 
@@ -179,7 +181,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //locks rotation
 
-		if (Input.GetButtonDown ("Switch") && energy > 30f) {
+		if (Input.GetButtonDown ("Switch") && energy > 30f && canMove == true) {
 			energy = energy - 30;
 			isBlue = !isBlue;
 		}
@@ -213,7 +215,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 //			anim.SetInteger("State", 1);
 //			}
 
-		if(isBlue && !isHurt && !isAttacking){
+		if(isBlue && !isHurt && !isAttacking  && canMove == true){
         moveX = Input.GetAxis("Horizontal");  //if input is on horizontal axis
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * speed, gameObject.GetComponent<Rigidbody2D>().velocity.y); //move using velocity
             //gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(moveX * speed, 0), ForceMode2D.Impulse); //move using forces
@@ -227,7 +229,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 		else
 			GetComponent<Rigidbody2D> ().gravityScale = 70;
 
-        if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2) //if jump button is hit and player hasn't done more than 2 jumps
+		if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2  && canMove == true) //if jump button is hit and player hasn't done more than 2 jumps
 		//if (Input.GetButtonDown("Jump"))
         {
             Jump(); // call jump
@@ -286,17 +288,17 @@ public class BluePlayerBehavior : MonoBehaviour {
 ////            comboTimer = 0;
 ////            anim.SetInteger("State", 2);
 			
-		if(Input.GetButtonDown ("Fire2") && energy > 15 && hasTripleMelee && isOnGround)
+		if(Input.GetButtonDown ("Fire2") && energy > 15 && hasTripleMelee && isOnGround  && canMove == true)
 			{
 				CoolCombo();
 			isOnGround = true;
 		}
 
-		if (!Input.GetButtonDown ("Fire1") && anim.GetInteger ("State") == 2)
+		if (!Input.GetButtonDown ("Fire1") && anim.GetInteger ("State") == 2 )
 			anim.SetInteger ("State", 0);
 
 
-			if (Input.GetButtonDown ("Fire1") && energy > 15 ) {
+		if (Input.GetButtonDown ("Fire1") && energy > 15  && canMove == true) {
 			
 				anim.SetInteger ("State", 2);
 
@@ -317,7 +319,6 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 		if(GetComponent<Rigidbody2D>().velocity.y < -1 && !isOnGround && !Input.GetButton("Fire1"))
-        //    if (GetComponent<Rigidbody2D>().velocity.y < 0 && !Input.GetButton("Fire1"))
             {
             anim.SetInteger("State", 7);
             isFalling = true;
@@ -357,7 +358,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			energy = energy + .24f;
 		}
 
-        if(Input.GetButtonDown("Fire3") && hasRanged && energy > 15) // if fire2 is pressed and ranged is enabled then ranged attack
+		if(Input.GetButtonDown("Fire3") && hasRanged && energy > 15  && canMove == true) // if fire2 is pressed and ranged is enabled then ranged attack
         {
             
             StartCoroutine(RangedAttack());
@@ -371,13 +372,9 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         }
 
-//        if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged)
-//        {
-//            StartCoroutine(Dodge());
-//            hasDodged = true;
-//        }
 
-		if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged && energy > 15) {
+
+		if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged && energy > 15  && canMove == true) {
             energy -= 15;
 			dashStartTime = Time.timeSinceLevelLoad + 0.2f;
 			dashEndTime = Time.timeSinceLevelLoad + 0.3f;
@@ -754,6 +751,15 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         
     }
+
+	IEnumerator Woke()
+	{
+		
+		GetComponent<Animator>().Play("Blue Respawn");
+		yield return new WaitForSeconds (1.5f);
+		canMove = true;
+
+	}
 
     void CoolCombo()
     {
