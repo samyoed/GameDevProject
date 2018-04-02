@@ -6,7 +6,7 @@ public class CheckpointBehav : MonoBehaviour {
 
 
 
-	public GameObject gamesaveText;
+	
 
     
 
@@ -40,14 +40,14 @@ public class CheckpointBehav : MonoBehaviour {
 
 	IEnumerator textShow()
 	{
-		gamesaveText.SetActive (true);
-		yield return new WaitForSeconds (1f);
-		gamesaveText.SetActive (false);
+        transform.GetChild(0).gameObject.SetActive(true);
+        yield return new WaitForSeconds (1f);
+        transform.GetChild(0).gameObject.SetActive(false);
 
 
 
 
-	}
+    }
 
 
 

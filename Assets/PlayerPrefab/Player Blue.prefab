@@ -144,7 +144,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 68, y: 40}
-    newSize: {x: 0.68, y: 0.4}
+    newSize: {x: 68, y: 40}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -169,7 +169,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 68, y: 40}
-    newSize: {x: 0.68, y: 0.4}
+    newSize: {x: 68, y: 40}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -278,6 +278,7 @@ MonoBehaviour:
   memory4: {fileID: 0}
   memory5: {fileID: 0}
   isHurt: 0
+  canMove: 1
   combo: 
   fireRate: 0.2
   hasRanged: 0
@@ -286,7 +287,9 @@ MonoBehaviour:
   hasSpeedyRegen: 0
   isDead: 0
   bossDoor1: 0
+  enemiesKilled: 0
   meleeHitbox: {fileID: 0}
+  energyBarFill: {fileID: 0}
 --- !u!212 &212238230674806696
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -326,7 +329,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.68, y: 0.4}
+  m_Size: {x: 68, y: 40}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -370,7 +373,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.68, y: 0.4}
+  m_Size: {x: 68, y: 40}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

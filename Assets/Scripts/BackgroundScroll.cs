@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BackgroundScroll : MonoBehaviour
 {
-
+    // used to add parallax to background
     private Transform cameraTransform;
     private Transform[] layers;
     private float viewZone = 10;
@@ -49,7 +49,7 @@ public class BackgroundScroll : MonoBehaviour
 
 
 
-    private void ScrollLeft()
+    private void ScrollLeft() // call if going left
     {
         int lastRight = rightIndex;
         layers[rightIndex].position = new Vector3(layers[leftIndex].position.x - backgroundSize, transform.position.y, transform.position.z);
@@ -59,7 +59,7 @@ public class BackgroundScroll : MonoBehaviour
             rightIndex = layers.Length - 1;
     }
 
-    private void ScrollRight()
+    private void ScrollRight() // call if going right
     {
         int lastLeft = leftIndex;
         layers[leftIndex].position = new Vector3(layers[rightIndex].position.x + backgroundSize, transform.position.y, transform.position.z);

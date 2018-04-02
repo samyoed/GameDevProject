@@ -67,7 +67,11 @@ public class BluePlayerBehavior : MonoBehaviour {
     public bool isDead = false;
     public bool bossDoor1 = false;
 
+    public int enemiesKilled; // for health regen
+
+
     public GameObject meleeHitbox;
+    public Image energyBarFill;
 
     Animator anim;
 
@@ -110,7 +114,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 		canMove = false;
 
 		StartCoroutine (Woke());
-
+        enemiesKilled = 0;
 
 
 
@@ -123,6 +127,25 @@ public class BluePlayerBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // changes fill color based on amount
+        energyBarFill.fillAmount = energy / 100f;
+        if(energy < 50)
+        energyBarFill.GetComponent<Image>().color = new Color32(255, 90, 0, 255);
+        else
+            energyBarFill.GetComponent<Image>().color = new Color32(255, 255, 255, 255);
+
+        if (energy < 25)
+            energyBarFill.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+        
+
+
+
+        if (enemiesKilled == 5)
+        {
+            health++;
+            enemiesKilled = 0;
+        }
+
 
         if (health == 0)
             isDead = true;
@@ -145,38 +168,8 @@ public class BluePlayerBehavior : MonoBehaviour {
         //    gameObject.GetComponent<Rigidbody2D>().drag = 0;
 
 
-        switch (health) { // shows however many hearts there are
+        
 
-            case 0:
-                {
-                    heart1.SetActive(false);
-                    heart2.SetActive(false);
-                    heart3.SetActive(false);
-                    break;
-                }
-            case 1:
-                {
-                    heart1.SetActive(true);
-                    heart2.SetActive(false);
-                    heart3.SetActive(false);
-                    break;
-                }
-            case 2:
-                {
-                    heart1.SetActive(true);
-                    heart2.SetActive(true);
-                    heart3.SetActive(false);
-                    break;
-                }
-            case 3:
-                {
-                    heart1.SetActive(true);
-                    heart2.SetActive(true);
-                    heart3.SetActive(true);
-                    break;
-                }
-
-        }
 
 
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, lockPos, lockPos); //locks rotation
