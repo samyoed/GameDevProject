@@ -10,12 +10,25 @@ public class SoundScript : MonoBehaviour {
     public AudioClip steps;
     public AudioClip ranged;
     public AudioClip powerup;
+	public AudioClip land;
+	public AudioClip jump;
+	public AudioClip respawn;
+
+
+	public AudioClip title;
+	public AudioClip overworld;
 
     public AudioSource audio;
+	public AudioSource bg;
+
 
     void Start()
     {
          audio = GetComponent<AudioSource>();
+		bg.clip = overworld;
+		bg.Play ();
+		audio.clip = respawn;
+		audio.Play ();
 
     }
 
@@ -56,6 +69,12 @@ public class SoundScript : MonoBehaviour {
         audio.Play();
 
     }
+	public void Land()
+	{
+		audio.clip = land;
+		audio.Play();
+	}
+		
 
 
 }

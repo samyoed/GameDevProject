@@ -73,6 +73,12 @@ public class BluePlayerBehavior : MonoBehaviour {
     public GameObject meleeHitbox;
     public Image energyBarFill;
 
+	public AudioSource audio;
+	public AudioSource bg;
+	public AudioClip jumpSound;
+	public AudioClip hurtSound;
+	public AudioClip boss;
+
     Animator anim;
 
 
@@ -225,6 +231,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 		if (Input.GetButtonDown("Jump") && isBlue && jumpCount < 2  && canMove == true) //if jump button is hit and player hasn't done more than 2 jumps
 		//if (Input.GetButtonDown("Jump"))
         {
+			audio.clip = jumpSound;
+			audio.Play ();
             Jump(); // call jump
             isOnGround = false; //not on the ground anymore
 			jumpCount++; // add one to jump count
@@ -336,7 +344,8 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         if (isHurt)
         {
-            anim.SetInteger("State", 6);
+			
+            anim.SetInteger("State", 6); //change anim state to hurt
         }
 
         
@@ -528,6 +537,8 @@ public class BluePlayerBehavior : MonoBehaviour {
         if (coll.gameObject.tag == "Enemy" && !isInvincible){  // if its enemy and not invincible then take damage
             enemyDist = this.transform.position.x - coll.transform.position.x;
             StartCoroutine(Injured());
+			audio.clip = hurtSound;
+			audio.Play ();
         }
         else if(coll.gameObject.tag =="Enemy" && isInvincible)
         {
@@ -545,7 +556,18 @@ public class BluePlayerBehavior : MonoBehaviour {
 		}
 
 
+
+
     }
+
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.name == "bossMusicCue"){
+
+			bg.clip = boss;
+			bg.Play ();
+		}
+
+	}
 
     void OnCollisionExit2D(Collision2D coll)
     {
