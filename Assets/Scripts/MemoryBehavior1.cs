@@ -28,13 +28,26 @@ public class MemoryBehavior1 : MonoBehaviour {
 
 		if (coll.gameObject.tag == "Player") {
 
-			isActivated = true; 
+            StartCoroutine(PlaySound());
 
-			gameObject.SetActive (false);
+            isActivated = true; 
+
+			//gameObject.SetActive (false);
+
+           
 
 		}
 
 	
 	}
+
+    IEnumerator PlaySound()
+    {
+        GetComponent<AudioSource>().Play();
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(GetComponent<AudioSource>().clip.length);
+        gameObject.SetActive(false);
+
+    }
 
 }

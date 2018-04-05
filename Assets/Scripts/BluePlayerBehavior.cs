@@ -72,6 +72,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     public GameObject meleeHitbox;
     public Image energyBarFill;
+    public Image lifeStealFill;
 
 	public AudioSource audio;
 	public AudioSource bg;
@@ -142,11 +143,11 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         if (energy < 25)
             energyBarFill.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
-        
+
+        lifeStealFill.fillAmount = enemiesKilled / 4f;
 
 
-
-        if (enemiesKilled == 5)
+        if (enemiesKilled == 4)
         {
             health++;
             enemiesKilled = 0;

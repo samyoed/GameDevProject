@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour {
     public float smoothSpeed = 0.5f;
     public float leftOffset = -30;
 
-    private Vector3 offset;
+    private Vector3 offset = new Vector3(54.6f, 41.19f, 0);
     private bool isFacingRight;
     public float cameraBack = -10;
     
@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        offset = transform.position - player.transform.position;
+        //offset = transform.position - player.transform.position;
     }
 
     // Update is called once per frame
