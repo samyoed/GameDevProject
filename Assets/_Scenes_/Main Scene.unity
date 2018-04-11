@@ -140692,7 +140692,7 @@ Prefab:
       objectReference: {fileID: 1508994550}
     - target: {fileID: 1983965130999714, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
       propertyPath: m_Name
-      value: Enemy1 (14)
+      value: Boss Thwompo
       objectReference: {fileID: 0}
     - target: {fileID: 4305716089621576, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
       propertyPath: m_LocalScale.x
@@ -140706,9 +140706,40 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.39218444
       objectReference: {fileID: 0}
+    - target: {fileID: 114504738663289394, guid: a86b9c56deaf43049ab1b1322c4590fd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2077815577 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1983965130999714, guid: a86b9c56deaf43049ab1b1322c4590fd,
+    type: 2}
+  m_PrefabInternal: {fileID: 2077815576}
+--- !u!114 &2077815578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077815577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6cd44285afc65d4aa3c7190ddba458c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  knockback: 1000
+  raycastLength: 1000
+  speed: 50
+  lLimit: 1830
+  rLimit: 2050
+  topLimit: -841.6
+  player: {fileID: 1508994550}
+  attackGravity: 5
+  offset: 50
 --- !u!1 &2086709265
 GameObject:
   m_ObjectHideFlags: 0
