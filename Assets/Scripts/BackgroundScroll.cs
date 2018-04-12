@@ -52,7 +52,7 @@ public class BackgroundScroll : MonoBehaviour
     private void ScrollLeft() // call if going left
     {
         int lastRight = rightIndex;
-        layers[rightIndex].position = new Vector3(layers[leftIndex].position.x - backgroundSize, transform.position.y, transform.position.z);
+        layers[rightIndex].position = new Vector3(layers[leftIndex].position.x - backgroundSize, transform.position.y, 200f);
         leftIndex = rightIndex;
         rightIndex--;
         if (rightIndex < 0)
@@ -62,7 +62,7 @@ public class BackgroundScroll : MonoBehaviour
     private void ScrollRight() // call if going right
     {
         int lastLeft = leftIndex;
-        layers[leftIndex].position = new Vector3(layers[rightIndex].position.x + backgroundSize, transform.position.y, transform.position.z);
+        layers[leftIndex].position = new Vector3(layers[rightIndex].position.x + backgroundSize, transform.position.y, 200f);
         rightIndex = leftIndex;
         leftIndex++;
         if (leftIndex == layers.Length)

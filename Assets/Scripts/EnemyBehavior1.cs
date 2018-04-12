@@ -116,25 +116,21 @@ public class EnemyBehavior1 : MonoBehaviour {
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(-1, 1) * knockback, ForceMode2D.Impulse);
             Debug.Log("air injured");
-            health--;
         }
         if (isOnGround && !hitboxRight)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector2.left * knockback, ForceMode2D.Impulse);
             Debug.Log("injured");
-            health--;
         }
         if (!isOnGround && hitboxRight)
         {
             GetComponent<Rigidbody2D>().AddForce(new Vector2(1, 1) * knockback, ForceMode2D.Impulse);
             Debug.Log("air injured");
-            health--;
         }
         if (isOnGround && hitboxRight)
         {
             GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockback, ForceMode2D.Impulse);
             Debug.Log("injured");
-            health--;
         }
         this.GetComponent<SpriteRenderer>().color = Color.red;
         yield return new WaitForSeconds(.3f);

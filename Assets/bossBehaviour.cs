@@ -5,6 +5,7 @@ using UnityEngine;
 public class bossBehaviour : MonoBehaviour {
 
 	public int health;
+	public int maxHealth;
 	public int knockback = 1000;
 	public float raycastLength = 1000;
 	public float speed = 50;
@@ -42,6 +43,7 @@ public class bossBehaviour : MonoBehaviour {
 	void Start () {
 		this.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 		topLimit = this.transform.position.y;
+		health = maxHealth;
 	}
 	
 	// Update is called once per frame
@@ -137,7 +139,15 @@ public class bossBehaviour : MonoBehaviour {
 		this.GetComponent<Rigidbody2D> ().gravityScale = 0;
 	}
 
-	void p2Attack ()	{
-		
+	void OnCollisionEnter2D(Collision2D coll)
+	{
+		if(coll.gameObject.tag == "Attack Hitbox")
+		{
+			hitboxDist = this.transform.position.x - coll.transform.position.x;
+			int damage = coll.gameObject.GetComponent<AttackHitbox>().damage;
+			health -= damage;
+			Debug.Log ("health:" + health);
+			Debug.Log ("dam:" + damage);
+		}
 	}
 }
