@@ -60,6 +60,7 @@ public class bossBehaviour : MonoBehaviour {
 
 			if (p2TimeCount >= p2Duration) {
 				p2TimeCount = 0;
+				p2Attacking = false;
 				moving = false;
 				attackingDown = false;
 				attackingUp = true;
@@ -79,6 +80,7 @@ public class bossBehaviour : MonoBehaviour {
 		}
 
 		previousPosition = this.transform.position;
+		this.transform.rotation = new Quaternion (0, 0, 0, 0);
 	}
 
 	void moveLR ()	{
@@ -127,12 +129,12 @@ public class bossBehaviour : MonoBehaviour {
 			liftDelay = 0;
 			attackingUp = true;
 			attackingDown = false;
-			this.GetComponent<Rigidbody2D> ().gravityScale = 0;
 		}
 	}
 
 	void attackUp ()	{
 		this.transform.position += new Vector3 (0, 1, 0);
+		this.GetComponent<Rigidbody2D> ().gravityScale = 0;
 	}
 
 	void p2Attack ()	{

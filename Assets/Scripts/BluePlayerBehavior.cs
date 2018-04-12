@@ -350,15 +350,15 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
         
-
+/////////////////////////ENERGY REGEN////////////////////////////////////////////////////////////////////////////
 		if (energy < 100 && !hasSpeedyRegen)
 		{
-			energy = energy + .10f;
+			energy += .60f;
 		}
 
 		if (energy < 100 && hasSpeedyRegen) 
 		{
-			energy = energy + .24f;
+			energy += 1.20f;
 		}
 
 		if(Input.GetButtonDown("Fire3") && hasRanged && energy > 15  && canMove == true) // if fire2 is pressed and ranged is enabled then ranged attack
@@ -378,7 +378,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 		if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged && energy > 15  && canMove == true) {
-            energy -= 15;
+            energy -= 20;
 			dashStartTime = Time.timeSinceLevelLoad + 0.2f;
 			dashEndTime = Time.timeSinceLevelLoad + 0.3f;
 			hasDodged = true;
@@ -680,7 +680,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     IEnumerator Dash() //dash for first two melee attacks
     {
         isAttacking = true;
-		energy = energy - 15.0f;
+		energy -= 28.0f;
         if (isFacingRight)
         {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(dash, 0);

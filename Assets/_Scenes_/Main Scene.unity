@@ -140655,11 +140655,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4305716089621576, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1827.4
+      value: 1833.8
       objectReference: {fileID: 0}
     - target: {fileID: 4305716089621576, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -841.6
+      value: -839
       objectReference: {fileID: 0}
     - target: {fileID: 4305716089621576, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -140696,15 +140696,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4305716089621576, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 2.4026794
       objectReference: {fileID: 0}
     - target: {fileID: 4305716089621576, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 2.4026794
       objectReference: {fileID: 0}
     - target: {fileID: 4305716089621576, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
       propertyPath: m_LocalScale.z
-      value: 0.39218444
+      value: 0.47114673
       objectReference: {fileID: 0}
     - target: {fileID: 114504738663289394, guid: a86b9c56deaf43049ab1b1322c4590fd,
         type: 2}
@@ -140715,6 +140715,11 @@ Prefab:
         type: 2}
       propertyPath: m_BodyType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 50358736642812156, guid: a86b9c56deaf43049ab1b1322c4590fd,
+        type: 2}
+      propertyPath: m_Mass
+      value: 1000000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
@@ -140742,9 +140747,9 @@ MonoBehaviour:
   lLimit: 1830
   rLimit: 2050
   player: {fileID: 1508994550}
-  attackGravity: 6
+  attackGravity: 18
   liftLimit: 2.5
-  p2Duration: 10
+  p2Duration: 7
   offset: 50
 --- !u!1 &2086709265
 GameObject:
