@@ -10,7 +10,7 @@ public class bossBehaviour : MonoBehaviour {
 	public float speed = 50;
 	public float lLimit = 0;
 	public float rLimit = 0;
-	public float topLimit = 0;
+	float topLimit = 0;
 	char targetDirection = 'r';
 	Vector3 previousPosition = new Vector3 (0, 0, 0);
 	int passOver = 0;
@@ -19,6 +19,9 @@ public class bossBehaviour : MonoBehaviour {
 	public GameObject player;
 
 	public float attackGravity = 0;
+	float liftDelay = 0;
+	public float liftLimit = 0;
+
 	private float hitboxDist;
 	private bool hitboxRight;
 	private bool isOnGround = false;
@@ -32,17 +35,21 @@ public class bossBehaviour : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		this.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+		topLimit = this.transform.position.y;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (this.transform.position.y >= topLimit) {
 			moving = true;
+			attackingUp = false;
 		}
-
-
+		if (attackingUp) {
+			attackUp ();
+			attackingDown = false;
+		}
 		if (attackingDown) {
-			attack ();
+			attackDown ();
 			moving = false;
 		}
 		if (moving) {
@@ -85,9 +92,21 @@ public class bossBehaviour : MonoBehaviour {
 		}
 	}
 
-	void attack ()	{
+	void attackDown ()	{
 		this.GetComponent<Rigidbody2D> ().gravityScale = attackGravity;
 		this.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, this.GetComponent<Rigidbody2D> ().velocity.y);
+		liftDelay += Time.deltaTime;
+
+		if (liftDelay >= liftLimit) {
+			liftDelay = 0;
+			attackingUp = true;
+			attackingDown = false;
+			this.GetComponent<Rigidbody2D> ().gravityScale = 0;
+		}
+	}
+
+	void attackUp ()	{
+		this.transform.position += new Vector3 (0, 1, 0);
 	}
 
 	void p2Attack ()	{

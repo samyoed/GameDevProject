@@ -140711,6 +140711,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 50358736642812156, guid: a86b9c56deaf43049ab1b1322c4590fd,
+        type: 2}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a86b9c56deaf43049ab1b1322c4590fd, type: 2}
   m_IsPrefabParent: 0
@@ -140736,9 +140741,9 @@ MonoBehaviour:
   speed: 50
   lLimit: 1830
   rLimit: 2050
-  topLimit: -841.6
   player: {fileID: 1508994550}
-  attackGravity: 5
+  attackGravity: 6
+  liftLimit: 2.5
   offset: 50
 --- !u!1 &2086709265
 GameObject:
