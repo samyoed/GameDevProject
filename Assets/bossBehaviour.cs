@@ -22,6 +22,11 @@ public class bossBehaviour : MonoBehaviour {
 	float liftDelay = 0;
 	public float liftLimit = 0;
 
+	int phase2Count = 0;
+	int phase2Limit = 4;
+	public float p2Duration = 0;
+	float p2TimeCount = 0;
+
 	private float hitboxDist;
 	private bool hitboxRight;
 	private bool isOnGround = false;
@@ -31,6 +36,7 @@ public class bossBehaviour : MonoBehaviour {
 	bool moving = true;
 	bool attackingDown = false;
 	bool attackingUp = false;
+	bool p2Attacking = false;
 
 	// Use this for initialization
 	void Start () {
@@ -42,8 +48,24 @@ public class bossBehaviour : MonoBehaviour {
 	void Update () {
 		if (this.transform.position.y >= topLimit) {
 			moving = true;
-			attackingUp = false;
+			if (attackingUp) {
+				attackingUp = false;
+				phase2Count++;
+			}
 		}
+		if (p2Attacking) {
+			moveLR ();
+			attackingDown = true;
+			p2TimeCount += Time.deltaTime;
+
+			if (p2TimeCount >= p2Duration) {
+				p2TimeCount = 0;
+				moving = false;
+				attackingDown = false;
+				attackingUp = true;
+			}
+		}
+
 		if (attackingUp) {
 			attackUp ();
 			attackingDown = false;
@@ -55,8 +77,6 @@ public class bossBehaviour : MonoBehaviour {
 		if (moving) {
 			moveLR ();
 		}
-
-
 
 		previousPosition = this.transform.position;
 	}
@@ -85,11 +105,17 @@ public class bossBehaviour : MonoBehaviour {
 			}
 		}
 		if (passOver >= passOverLimit) {
-			attackingDown = true;
 			moving = false;
 			passOver = 0;
 			Debug.Log ("attack");
-		}
+			if (phase2Count >= phase2Limit) {
+				phase2Count = 0;
+				p2Attacking = true;
+			} 
+			  else {
+				attackingDown = true;
+			  }
+			}
 	}
 
 	void attackDown ()	{
@@ -110,6 +136,6 @@ public class bossBehaviour : MonoBehaviour {
 	}
 
 	void p2Attack ()	{
-	
+		
 	}
 }
