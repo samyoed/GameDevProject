@@ -31,7 +31,6 @@ public class BluePlayerBehavior : MonoBehaviour {
     public GameObject face2;
 	public GameObject arrow;
 
-
     public GameObject memory1;
     public GameObject memory2;
     public GameObject memory3;
@@ -66,6 +65,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
     public bool isDead = false;
     public bool bossDoor1 = false;
+	public bool bossFightStart = false;
 
     public int enemiesKilled; // for health regen
 
@@ -566,6 +566,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 			bg.clip = boss;
 			bg.Play ();
+			bossFightStart = true;
 		}
 
 	}

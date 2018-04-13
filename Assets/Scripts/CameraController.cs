@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour {
     private bool isFacingRight;
     public float cameraBack = -10;
     
-
+	bool lockPos = false;
 
     // Use this for initialization
     void Start()
@@ -26,29 +26,30 @@ public class CameraController : MonoBehaviour {
     void Update()
     {
         isFacingRight = player.gameObject.GetComponent<BluePlayerBehavior>().isFacingRight;
+
+		lockPos = player.GetComponent<BluePlayerBehavior> ().bossFightStart;
     }
 
     void FixedUpdate()
-    {
-        Vector2 desiredPosition = player.transform.position + offset;
+	{
+		if (!lockPos) {
+			Vector2 desiredPosition = player.transform.position + offset;
         
 
-        if (!isFacingRight)
-        {
-            desiredPosition = new Vector3(desiredPosition.x + leftOffset, desiredPosition.y, -1);
+			if (!isFacingRight) {
+				desiredPosition = new Vector3 (desiredPosition.x + leftOffset, desiredPosition.y, -1);
 
-            Vector2 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition , smoothSpeed * Time.deltaTime);
+				Vector2 smoothedPosition = Vector3.Lerp (transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
 
-            transform.position = smoothedPosition;
-        }
-        else
-        {
-            Vector2 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+				transform.position = smoothedPosition;
+			} else {
+				Vector2 smoothedPosition = Vector3.Lerp (transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
 
-            transform.position = smoothedPosition;
-        }
+				transform.position = smoothedPosition;
+			}
 
-        transform.position = new Vector3(transform.position.x, transform.position.y, cameraBack);
+			transform.position = new Vector3 (transform.position.x, transform.position.y, cameraBack);
 
-    }
+		}
+	}
 }
