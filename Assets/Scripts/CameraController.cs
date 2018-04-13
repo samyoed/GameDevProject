@@ -14,6 +14,7 @@ public class CameraController : MonoBehaviour {
     public float cameraBack = -10;
     
 	bool lockPos = false;
+	public GameObject barriers;
 
     // Use this for initialization
     void Start()
@@ -28,6 +29,10 @@ public class CameraController : MonoBehaviour {
         isFacingRight = player.gameObject.GetComponent<BluePlayerBehavior>().isFacingRight;
 
 		lockPos = player.GetComponent<BluePlayerBehavior> ().bossFightStart;
+
+		if (lockPos && !barriers.activeInHierarchy) {
+			barriers.SetActive (true);
+		}
     }
 
     void FixedUpdate()
