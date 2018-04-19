@@ -20,6 +20,10 @@ public class MemoryBehavior1 : MonoBehaviour {
 	void Update () {
 
 
+		//transform.Rotate(Vector3.right * 1);
+
+
+		transform.Rotate(Vector3.up * 1);
         
 	}
 

@@ -21,25 +21,26 @@ public class ladderBehavior : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (isOnLadder)
-        {
-            // if (Input.GetButtonDown("Vertical"))
+		if (isOnLadder) {
+			// if (Input.GetButtonDown("Vertical"))
 
-            player.GetComponent<Rigidbody2D>().velocity = new Vector2(0, Input.GetAxis("Vertical") * speed);
+			player.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, Input.GetAxis ("Vertical") * speed);
            
 
-            //            else
-            //                coll.GetComponent<Rigidbody2D>().velocity = new Vector2(0, upSpeed);
+			//            else
+			//                coll.GetComponent<Rigidbody2D>().velocity = new Vector2(0, upSpeed);
 
 
-            Debug.Log("atladder");
+			Debug.Log ("atladder");
 
-            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, upSpeed));
+			player.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, upSpeed));
 
-            player.GetComponent<Animator>().Play("Blue Climb");
+			player.GetComponent<Animator> ().SetInteger ("State", 14);
+	} else
+			
 
 
-        }
+		Debug.Log (isOnLadder);
     }
 
 
@@ -88,6 +89,7 @@ public class ladderBehavior : MonoBehaviour {
     void OnTriggerExit2D(Collider2D coll)
     {
         isOnLadder = false;
+		player.GetComponent<Animator> ().SetInteger ("State", 5);
         
     }
 

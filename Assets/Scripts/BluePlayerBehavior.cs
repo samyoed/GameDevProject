@@ -66,19 +66,22 @@ public class BluePlayerBehavior : MonoBehaviour {
     public bool isDead = false;
     public bool bossDoor1 = false;
 	public bool bossFightStart = false;
+	public bool bossHealthBar = false;
 
     public int enemiesKilled; // for health regen
 
-
+	public GameObject bossHealthBarBar;
     public GameObject meleeHitbox;
     public Image energyBarFill;
     public Image lifeStealFill;
+
 
 	public AudioSource audio;
 	public AudioSource bg;
 	public AudioClip jumpSound;
 	public AudioClip hurtSound;
 	public AudioClip boss;
+
 
     Animator anim;
 
@@ -134,6 +137,14 @@ public class BluePlayerBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (bossHealthBar == true){
+			bossHealthBarBar.SetActive(true);
+
+		}
+
+
+
         // changes fill color based on amount
         energyBarFill.fillAmount = energy / 100f;
         if(energy < 50)
@@ -567,6 +578,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			bg.clip = boss;
 			bg.Play ();
 			bossFightStart = true;
+			bossHealthBar = true;
 		}
 
 	}
