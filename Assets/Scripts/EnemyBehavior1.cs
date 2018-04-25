@@ -30,6 +30,7 @@ public class EnemyBehavior1 : MonoBehaviour {
         {
             this.gameObject.SetActive(false); // if health is 0 then destroy creature
             player.GetComponent<BluePlayerBehavior>().enemiesKilled++;
+			transform.GetChild(0).gameObject.SetActive(true);
         }
         transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, 0, 0); // locks rotation
 

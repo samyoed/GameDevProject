@@ -21,6 +21,8 @@ public class ladderBehavior : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+		Debug.Log ("isOnLadder = " + isOnLadder);
 		if (isOnLadder) {
 			// if (Input.GetButtonDown("Vertical"))
 
@@ -34,8 +36,9 @@ public class ladderBehavior : MonoBehaviour {
 			Debug.Log ("atladder");
 
 			player.GetComponent<Rigidbody2D> ().AddForce (new Vector2 (0, upSpeed));
+			player.GetComponent<BluePlayerBehavior> ().isOnLadder = true;
+			//player.GetComponent<Animator> ().SetInteger ("State", 14);
 
-			player.GetComponent<Animator> ().SetInteger ("State", 14);
 	} else
 			
 
@@ -46,12 +49,16 @@ public class ladderBehavior : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D coll)
     {
-        if (coll.tag == "Player" && Input.GetButtonDown("Vertical"))
-        {
-            isOnLadder = true;
-            player = coll.gameObject;
-        }
-        else player.GetComponent<Animation>().enabled = false;
+		
+		if (coll.tag == "Player" && Input.GetButtonDown ("Vertical")) {
+			player.GetComponent<Animator> ().enabled = true;
+			isOnLadder = true;
+			player = coll.gameObject;
+		} else if (coll.tag == "Player" && Input.GetButtonUp ("Vertical")) {
+			
+		
+			//player.GetComponent<Animator> ().enabled = false;
+		}
 
 
 //            if (isOnLadder)
@@ -80,6 +87,8 @@ public class ladderBehavior : MonoBehaviour {
     if (coll.tag == "Player" && Input.GetButtonDown("Jump"))
         {
             isOnLadder = false;
+			player.GetComponent<BluePlayerBehavior> ().isOnLadder = false;
+
         }
 
 
@@ -89,7 +98,9 @@ public class ladderBehavior : MonoBehaviour {
     void OnTriggerExit2D(Collider2D coll)
     {
         isOnLadder = false;
-		player.GetComponent<Animator> ().SetInteger ("State", 5);
+		player.GetComponent<BluePlayerBehavior> ().isOnLadder = false;
+
+		//player.GetComponent<Animator> ().SetInteger ("State", 7);
         
     }
 

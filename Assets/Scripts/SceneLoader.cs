@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour {
 
 
     public GameObject blue;
-    public GameObject red;
+	public Animator anim;
+	public Image black;
+    
 
     // Use this for initialization
     void Start() {
@@ -18,7 +21,8 @@ public class SceneLoader : MonoBehaviour {
     void Update() {
         if (blue.GetComponent<BluePlayerBehavior>().isDead == true)
         {
-            SceneManager.LoadScene("End Game");
+			StartCoroutine (FadeLose ());
+
         }
         
     }
@@ -28,4 +32,22 @@ public class SceneLoader : MonoBehaviour {
         SceneManager.LoadScene("Main Scene");
 
     }
-}
+
+	IEnumerator FadeLose()
+	{
+		anim.SetBool("Fade", true);
+		yield return new WaitUntil(() => black.color.a == 1);
+		SceneManager.LoadScene(2);
+
+	}
+
+	IEnumerator FadeWin()
+	{
+		anim.SetBool("Fade", true);
+		yield return new WaitUntil(() => black.color.a == 1);
+		SceneManager.LoadScene(3);
+
+	}
+
+} 
+	

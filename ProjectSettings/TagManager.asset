@@ -8,6 +8,7 @@ TagManager:
   - Platform
   - Attack Hitbox
   - Checkpoint
+  - Ladder
   layers:
   - Default
   - TransparentFX

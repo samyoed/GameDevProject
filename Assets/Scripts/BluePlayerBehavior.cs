@@ -12,6 +12,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     public float moveX;
     public bool isFacingRight;
 	public bool isBlue = true;
+	public bool isOnLadder = false;
 	private int jumpCount = 0;
     private bool isOnGround = true; //to make it so player isnt running in the air
     private bool isAttacking;
@@ -58,6 +59,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 	private float dashStartTime;
 	private float dashEndTime;
 	private bool isDashing = false;
+
 
 //    private float timeForMelee = 0;
 //    public float meleeEndTime = .2f;
@@ -138,6 +140,10 @@ public class BluePlayerBehavior : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+
+		if (!Input.GetButtonDown ("Fire1") && anim.GetInteger ("State") == 2 )
+			anim.SetInteger ("State", 0);
+
 		if (bossHealthBar == true){
 			bossHealthBarBar.SetActive(true);
 
@@ -165,8 +171,10 @@ public class BluePlayerBehavior : MonoBehaviour {
         }
 
 
-        if (health == 0)
-            isDead = true;
+		if (health == 0) {
+			isDead = true;
+
+		}
 
         if (isOnGround && !(moveX > 0.1 || moveX < -0.1))
         anim.SetInteger ("State", 0);
@@ -307,8 +315,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 			isOnGround = true;
 		}
 
-		if (!Input.GetButtonDown ("Fire1") && anim.GetInteger ("State") == 2 )
-			anim.SetInteger ("State", 0);
+
 
 
 		if (Input.GetButtonDown ("Fire1") && energy > 15  && canMove == true) {
@@ -462,18 +469,18 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-
-
-
-
-
-
         if(hasRanged && hasDodge && hasTripleMelee && hasSpeedyRegen && isOnGround)
         {
 
             bossDoor1 = true;
 
         }
+		Debug.LogWarning ("isonladder = " + isOnLadder);
+		if(isOnLadder){
+			anim.SetInteger ("State", 14);
+
+
+		}
     }
 
 
@@ -511,8 +518,10 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 		}
 
+
         
     }
+
 
    
    // ____________________________________________________________________________________________________________________________________________________________________________________________________________
@@ -537,7 +546,7 @@ public class BluePlayerBehavior : MonoBehaviour {
     {
         //Debug.Log ("working");
         //if (coll.gameObject.tag == "Platform" && (this.GetComponent<Rigidbody2D>().velocity.y < 0.05 || this.GetComponent<Rigidbody2D>().velocity.y > -0.05)) // if 
-        if (coll.gameObject.tag == "Platform" && coll.contacts[0].point.y < transform.position.y && coll.contacts[1].point.y < transform.position.y)
+        if (coll.gameObject.tag == "Platform" && coll.contacts[0].point.y < transform.position.y)
         {
             isOnGround = true;
             jumpCount = 0;
@@ -579,7 +588,10 @@ public class BluePlayerBehavior : MonoBehaviour {
 			bg.Play ();
 			bossFightStart = true;
 			bossHealthBar = true;
+		
+			Destroy (coll.gameObject);
 		}
+
 
 	}
 
@@ -789,6 +801,12 @@ public class BluePlayerBehavior : MonoBehaviour {
 		canMove = true;
 
 	}
+
+
+
+
+
+
 
     void CoolCombo()
     {
