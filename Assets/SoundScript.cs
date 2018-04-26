@@ -13,6 +13,7 @@ public class SoundScript : MonoBehaviour {
 	public AudioClip land;
 	public AudioClip jump;
 	public AudioClip respawn;
+    public AudioClip dash;
 
 
 	public AudioClip title;
@@ -74,7 +75,11 @@ public class SoundScript : MonoBehaviour {
 		audio.clip = land;
 		audio.Play();
 	}
-		
+	public void Dasho()
+    {
+        audio.clip = dash;
+        audio.Play();
+    }
 
 
 }

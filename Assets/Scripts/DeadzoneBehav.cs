@@ -20,6 +20,7 @@ public class DeadzoneBehav : MonoBehaviour {
         if(coll.gameObject.tag == "Player")
         {
             coll.gameObject.GetComponent<BluePlayerBehavior>().isDead = true;
+            coll.gameObject.GetComponent<BluePlayerBehavior>().health = 0;
 
         }
         if (coll.gameObject.tag == "Enemy")

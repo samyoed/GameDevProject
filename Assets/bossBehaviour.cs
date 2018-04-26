@@ -39,15 +39,31 @@ public class bossBehaviour : MonoBehaviour {
 	bool attackingUp = false;
 	bool p2Attacking = false;
 
+
+
+    Animator anim;
 	// Use this for initialization
 	void Start () {
-		this.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+
+        anim = GetComponent<Animator>();
+
+        this.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
 		topLimit = this.transform.position.y;
 		health = maxHealth;
-	}
+
+
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
+
+        //if (this.GetComponent<Rigidbody2D>().velocity.y < -0.1 )
+        //    anim.SetBool("isAttacking", true);
+        //else
+        //    anim.SetBool("isAttacking", false);
+
+
 		if (this.transform.position.y >= topLimit) {
 			moving = true;
 			if (attackingUp) {
@@ -123,7 +139,9 @@ public class bossBehaviour : MonoBehaviour {
 	}
 
 	void attackDown ()	{
-		this.GetComponent<Rigidbody2D> ().gravityScale = attackGravity;
+
+        anim.SetBool("isAttacking", true);
+        this.GetComponent<Rigidbody2D> ().gravityScale = attackGravity;
 		this.GetComponent<Rigidbody2D> ().velocity = new Vector2(0, this.GetComponent<Rigidbody2D> ().velocity.y);
 		liftDelay += Time.deltaTime;
 
@@ -135,7 +153,9 @@ public class bossBehaviour : MonoBehaviour {
 	}
 
 	void attackUp ()	{
-		this.transform.position += new Vector3 (0, 1, 0);
+
+        anim.SetBool("isAttacking", false);
+        this.transform.position += new Vector3 (0, 1, 0);
 		this.GetComponent<Rigidbody2D> ().gravityScale = 0;
 	}
 

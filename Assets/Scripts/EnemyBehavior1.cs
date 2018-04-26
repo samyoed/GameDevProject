@@ -28,7 +28,12 @@ public class EnemyBehavior1 : MonoBehaviour {
 
         if (health <= 0)
         {
-            this.gameObject.SetActive(false); // if health is 0 then destroy creature
+            // this.gameObject.SetActive(false); // if health is 0 then destroy creature
+
+
+            foreach (Behaviour childComponent in this.GetComponentsInChildren<Behaviour>())
+                childComponent.enabled = false;
+
             player.GetComponent<BluePlayerBehavior>().enemiesKilled++;
 			transform.GetChild(0).gameObject.SetActive(true);
         }

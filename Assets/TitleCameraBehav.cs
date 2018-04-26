@@ -9,17 +9,18 @@ public class TitleCameraBehav : MonoBehaviour {
     public float cameraMoveSpeed = 5;
     public Animator anim;
     public Image black;
+    private bool canPress = false;
 
 	// Use this for initialization
 	void Start () {
-		
+        StartCoroutine(CanPress());
 	}
 	
 	// Update is called once per frame
 	void Update () {
         transform.position = new Vector3(transform.position.x + cameraMoveSpeed, transform.position.y, transform.position.z);
 
-        if(Input.anyKeyDown == true)
+        if(Input.anyKeyDown == true && canPress)
         {
             StartCoroutine(Fade());
             
@@ -33,7 +34,12 @@ IEnumerator Fade()
 
     }
 
+    IEnumerator CanPress()
+    {
 
+        yield return new WaitForSeconds(1);
+        canPress = true;
+    }
 } 
 
 

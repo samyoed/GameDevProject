@@ -33,14 +33,16 @@ public class MemoryBehavior1 : MonoBehaviour {
 		if (coll.gameObject.tag == "Player") {
 
             StartCoroutine(PlaySound());
+            
+            isActivated = true;
+            coll.gameObject.GetComponent<BluePlayerBehavior>().powerNum++;
 
-            isActivated = true; 
 
-			//gameObject.SetActive (false);
+            //gameObject.SetActive (false);
 
-           
 
-		}
+
+        }
 
 	
 	}

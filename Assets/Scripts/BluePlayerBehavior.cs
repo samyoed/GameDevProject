@@ -11,26 +11,26 @@ public class BluePlayerBehavior : MonoBehaviour {
     public int finaldash = 150;
     public float moveX;
     public bool isFacingRight;
-	public bool isBlue = true;
-	public bool isOnLadder = false;
-	private int jumpCount = 0;
+    public bool isBlue = true;
+    public bool isOnLadder = false;
+    private int jumpCount = 0;
     private bool isOnGround = true; //to make it so player isnt running in the air
     private bool isAttacking;
     float lockPos = 0;
 
     public int health = 3;
-	public float energy = 100;
+    public float energy = 100;
 
     public int dodgeSpeed = 10000;
     public int knockback = 1000;
-    public Text energyText;
+    public int powerNum = 0;
 
     public GameObject heart1;
     public GameObject heart2;
     public GameObject heart3;
     public GameObject face1;
     public GameObject face2;
-	public GameObject arrow;
+    public GameObject arrow;
 
     public GameObject memory1;
     public GameObject memory2;
@@ -44,7 +44,8 @@ public class BluePlayerBehavior : MonoBehaviour {
     private bool isInvincible = false;
     private bool isFalling = false;
     private bool hasDodged = false;
-	public bool canMove = true;
+    public bool canMove = true;
+    private bool canDash = true;
 
     public int[] combo;
     //private int comboIndex = 0;
@@ -54,39 +55,47 @@ public class BluePlayerBehavior : MonoBehaviour {
     public bool hasRanged = false;
     public bool hasDodge = false;
     public bool hasTripleMelee = false;
-	public bool hasSpeedyRegen = false;
+    public bool hasSpeedyRegen = false;
 
-	private float dashStartTime;
-	private float dashEndTime;
-	private bool isDashing = false;
+    private float dashStartTime;
+    private float dashEndTime;
+    private bool isDashing = false;
 
 
-//    private float timeForMelee = 0;
-//    public float meleeEndTime = .2f;
-//    private bool canAttack = false;
+    //    private float timeForMelee = 0;
+    //    public float meleeEndTime = .2f;
+    //    private bool canAttack = false;
 
     public bool isDead = false;
     public bool bossDoor1 = false;
-	public bool bossFightStart = false;
-	public bool bossHealthBar = false;
+    public bool bossFightStart = false;
+    public bool bossHealthBar = false;
 
     public int enemiesKilled; // for health regen
 
-	public GameObject bossHealthBarBar;
+    public GameObject bossHealthBarBar;
     public GameObject meleeHitbox;
     public Image energyBarFill;
     public Image lifeStealFill;
+    public Image powerUpFill;
 
 
-	public AudioSource audio;
-	public AudioSource bg;
-	public AudioClip jumpSound;
-	public AudioClip hurtSound;
-	public AudioClip boss;
+    public AudioSource audio;
+    public AudioSource bg;
+    public AudioClip jumpSound;
+    public AudioClip hurtSound;
+    public AudioClip boss;
+
+
+    private Vector2 point;
+    private Vector2 start; // This is defined to be some arbitrary point far away from the collider.
+    private Vector2 goal;  // This is the point we want to determine whether or not is inside or outside the collider.
+    private Vector2 direction;
 
 
     Animator anim;
 
+    RaycastHit2D[] hits;
 
 
 	//private static BluePlayerBehavior instance;
@@ -162,7 +171,7 @@ public class BluePlayerBehavior : MonoBehaviour {
             energyBarFill.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
 
         lifeStealFill.fillAmount = enemiesKilled / 4f;
-
+        powerUpFill.fillAmount = powerNum / 4f;
 
         if (enemiesKilled == 4)
         {
@@ -182,7 +191,7 @@ public class BluePlayerBehavior : MonoBehaviour {
 
         int energyint = Mathf.RoundToInt(energy);
 
-        energyText.text = "Energy:" + energyint;
+       
 
         if (isHurt)
         {
@@ -395,7 +404,122 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 
-		if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged && energy > 15  && canMove == true) {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //if (isFacingRight)
+        //{
+        //    goal = new Vector2(transform.position.x + 120f, transform.position.y);
+            
+        //}
+        //else
+        //{
+        //    goal = new Vector2(transform.position.x - 20f, transform.position.y);
+            
+        //}
+        //start = new Vector2(0, 1000);
+
+
+        //Debug.Log("goal = " + goal);
+
+
+        //direction = goal - start; // This is the direction from start to goal.
+        //direction.Normalize();
+        //int iterations = 0; // If we know how many times the raycast has hit faces on its way to the target and back, we can tell through logic whether or not it is inside.
+        //point = start;
+
+        //while (point != goal) // Try to reach the point starting from the far off point.  This will pass through faces to reach its objective.
+        //    {
+        //    RaycastHit2D hit;
+        //        if (Physics2D.Linecast(point, goal)) // Progressively move the point forward, stopping everytime we see a new plane in the way.
+        //        {
+        //        hit = Physics2D.Linecast(point,goal);
+        //            iterations++;
+        //            point = new Vector2(hit.point.x, hit.point.y) + (direction / 100.0f); // Move the point to hit.point and push it forward just a touch to move it through the skin of the mesh (if you don't push it, it will read that same point indefinately).
+        //        }
+        //        else
+        //        {
+        //            point = goal; // If there is no obstruction to our goal, then we can reach it in one step.
+        //        }
+        //    }
+        //    while (point != start) // Try to return to where we came from, this will make sure we see all the back faces too.
+        //    {
+        //        RaycastHit2D hit;
+        //        if (Physics2D.Linecast(point, start))
+        //        {
+        //        hit = Physics2D.Linecast(point, goal);
+        //        iterations++;
+        //            point = new Vector2(hit.point.x, hit.point.y) + (-direction / 100.0f);
+        //        }
+        //        else
+        //        {
+        //            point = start;
+        //        }
+        //    }
+        //Debug.Log("iter = " + iterations);
+        //if (iterations % 2 == 0)
+        //    {
+        //        Debug.Log("point is Outside");
+        //    canDash = true;
+            
+        //}
+        //    if (iterations % 2 == 1)
+        //    {
+        //    Debug.Log("point is Inside");
+        //    canDash = false;
+            
+        //}
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		if(Input.GetButtonDown("Fire4") && hasDodge && !isOnGround && !hasDodged && energy > 15  && canMove == true && canDash == true) {
             energy -= 20;
 			dashStartTime = Time.timeSinceLevelLoad + 0.2f;
 			dashEndTime = Time.timeSinceLevelLoad + 0.3f;
@@ -415,6 +539,7 @@ public class BluePlayerBehavior : MonoBehaviour {
         if (memory2.GetComponent<MemoryBehavior1>().isActivated == true)
         {
             hasRanged = true;
+            
         }
 
         if (hasRanged)
@@ -481,6 +606,14 @@ public class BluePlayerBehavior : MonoBehaviour {
 
 
 		}
+
+        if(health == 0)
+        {
+            canMove = false;
+            anim.SetInteger("State", 6);
+
+        }
+
     }
 
 

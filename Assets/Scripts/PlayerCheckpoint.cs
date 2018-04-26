@@ -11,6 +11,7 @@ public class PlayerCheckpoint : MonoBehaviour
     public static bool hasTripleMelee = false;
     public static bool hasSpeedyRegen = false;
     public static int health = 3;
+    public static int powerNum = 0;
 
     void Awake(){
 
@@ -33,7 +34,7 @@ public class PlayerCheckpoint : MonoBehaviour
 
 
         GetComponent<BluePlayerBehavior>().health = health; // saves progress of health
-
+        GetComponent<BluePlayerBehavior>().powerNum = powerNum;
     }
 
     private void Update()
@@ -58,6 +59,7 @@ public class PlayerCheckpoint : MonoBehaviour
             hasTripleMelee = GetComponent<BluePlayerBehavior>().hasTripleMelee;
             hasSpeedyRegen = GetComponent<BluePlayerBehavior>().hasSpeedyRegen;
             health = GetComponent<BluePlayerBehavior>().health;
+            powerNum = GetComponent<BluePlayerBehavior>().powerNum;
 
 
 

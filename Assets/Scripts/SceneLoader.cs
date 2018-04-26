@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour {
 
 
     public GameObject blue;
+    public GameObject boss;
 	public Animator anim;
 	public Image black;
     
@@ -23,6 +24,10 @@ public class SceneLoader : MonoBehaviour {
         {
 			StartCoroutine (FadeLose ());
 
+        }
+        if(boss.GetComponent<bossBehaviour>().health <= 0)
+        {
+            StartCoroutine(FadeWin());
         }
         
     }
